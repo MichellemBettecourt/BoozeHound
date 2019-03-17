@@ -11,13 +11,16 @@ namespace BoozeHound
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; }
+        [NotNull]
         public string Name { get; set; }
         public string Brewery { get; set; }
         public string Style { get; set; }
-        public float ABV { get; set; }
-        public int IBU { get; set; }
+        public double? ABV { get; set; }
         public string Notes { get; set; }
-        public float Rating { get; set; }
+        [NotNull]
+        public double Rating { get; set; }
+        [NotNull]
+        public DateTime Timestamp { get; set; }
     }
 
     [Table("Wines")]
@@ -33,7 +36,9 @@ namespace BoozeHound
         public int Vintage { get; set; }
         public string Notes { get; set; }
         [NotNull]
-        public float Rating { get; set; }
+        public double Rating { get; set; }
+        [NotNull]
+        public DateTime Timestamp { get; set; }
     }
 
     [Table("Spirits")]
@@ -50,5 +55,7 @@ namespace BoozeHound
         public string Notes { get; set; }
         [NotNull]
         public float Rating { get; set; }
+        [NotNull]
+        public DateTime Timestamp { get; set; }
     }
 }

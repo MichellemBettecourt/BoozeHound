@@ -1,0 +1,23 @@
+﻿body
+{
+
+}
+
+.gridHeader {
+    background-color: darkblue;
+    border: 1px solid black;
+}
+
+.gridHeaderLabel {
+    font-size: 8;
+    font-style: bold;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.gridRowLabel {
+    font-size: 8;
+    vertical-align: middle;
+    text-align: center;
+}

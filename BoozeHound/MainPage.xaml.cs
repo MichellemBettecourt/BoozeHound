@@ -13,5 +13,11 @@ namespace BoozeHound
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new BeersPage());
+            App.Current.MainPage = new BeersPage();
+        }
     }
 }
