@@ -25,13 +25,19 @@ namespace BoozeHound
             }
         }
 
+        public static void CreateTables()
+        {
+            Database.CreateTable<Beer>();
+            Database.CreateTable<Wine>();
+            Database.CreateTable<Spirit>();
+        }
+
         #region Save Methods
 
         public static void SaveBeer(Beer beer)
         {
             try
             {
-                Database.CreateTable<Beer>();
                 Database.Insert(beer);
             }
             catch (Exception ex)
@@ -44,7 +50,6 @@ namespace BoozeHound
         {
             try
             {
-                Database.CreateTable<Wine>();
                 Database.Insert(wine);
             }
             catch (Exception ex)
@@ -57,7 +62,6 @@ namespace BoozeHound
         {
             try
             {
-                Database.CreateTable<Spirit>();
                 Database.Insert(spirit);
             }
             catch (Exception ex)
@@ -78,21 +82,14 @@ namespace BoozeHound
             return Database.Query<Beer>(where, args);
         }
 
-        public static List<Beer> GetTestBeers()
+        public static List<Beer> SearchBeers(string name)
         {
-            List<Beer> beers = new List<Beer>();
-            beers.Add(new Beer() { Name = "High Life", Rating = 1.5 });
-            beers.Add(new Beer() { Name = "Lil Juicy", Rating = 4.5 });
-            beers.Add(new Beer() { Name = "Horizontal Lines", Rating = 4.0 });
-            beers.Add(new Beer() { Name = "John Henry Milk Stout", Rating = 4.0 });
-
-            return beers;
+            return Database.Query<Beer>("SELECT * FROM Beers WHERE Name LIKE '%" + name + "%';");
         }
 
         public static void AddTestBeers()
         {
             Database.DeleteAll<Beer>();
-            Database.CreateTable<Beer>();
             Database.Insert(new Beer() { Name = "High Life", Rating = 1.5, Timestamp = DateTime.Now });
             Database.Insert(new Beer() { Name = "Lil Juicy", Rating = 4.5, Brewery = "Two Roads", Timestamp = DateTime.Now });
             Database.Insert(new Beer() { Name = "Horizontal Lines", Rating = 4.0, Brewery = "Finback", Timestamp = DateTime.Now });

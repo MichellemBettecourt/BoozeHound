@@ -18,6 +18,7 @@ namespace BoozeHound
         protected override void OnStart()
         {
             // Handle when your app starts
+            DataAccess.CreateTables();
         }
 
         protected override void OnSleep()

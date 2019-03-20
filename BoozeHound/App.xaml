@@ -4,5 +4,47 @@
         <x:String x:Key="DateFormat">{0:M/d/yyyy}</x:String>
 
         <StyleSheetExtension Source="styles.css" />
+
+        <ResourceDictionary>
+            <!--Buttons-->
+            <Style x:Key="btnBlueMed" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Blue" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="Margin" Value="4" />
+            </Style>
+
+            <Style x:Key="btnWhite" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="Margin" Value="4" />
+            </Style>
+
+            <!--Custom Popup ContentView-->
+            <Style x:Key="popContent" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="#C0808080" />
+                <Setter Property="Padding" Value="10, 0" />
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+            </Style>
+
+            <!--AbsoluteLayout for host page of custom popup-->
+            <Style x:Key="absPageLayout" TargetType="AbsoluteLayout">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

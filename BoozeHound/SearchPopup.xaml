@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoozeHound.SearchPopup"
+             Style="{StaticResource popContent}">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame Padding="0" CornerRadius="10">
+                <StackLayout Orientation="Vertical" HeightRequest="120" WidthRequest="300" BackgroundColor="White">
+                    <Label Text="Search Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                           BackgroundColor="Blue" TextColor="White" />
+                    <Entry x:Name="txtSearch" HorizontalOptions="FillAndExpand" Placeholder="Search By Name"
+                            Completed="TxtSearch_Completed" />
+                    <Grid VerticalOptions="End">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Column="0" x:Name="btnCancel" Text="Cancel" HorizontalOptions="Start" 
+                            Clicked="BtnCancel_Clicked" Style="{StaticResource btnWhite}" />
+                        <Button Grid.Column="1" x:Name="btnOk" Text="Ok" HorizontalOptions="End"
+                            Clicked="BtnOk_Clicked" Style="{StaticResource btnWhite}" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</ContentView>
