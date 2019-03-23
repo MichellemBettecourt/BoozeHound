@@ -15,11 +15,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="PopUp_Menu.xaml" />
+    <EmbeddedResource Remove="MyPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="BeersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="SearchPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="PopUp_Menu.xaml.cs" />
+    <Compile Remove="MyPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="FullAdd_List_PU.xaml.cs">
+      <DependentUpon>FullAdd_List_PU.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

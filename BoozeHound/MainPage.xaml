@@ -1,10 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:BoozeHound" 
              x:Class="BoozeHound.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
+    <ContentPage.Content>
+    <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout  VerticalOptions="CenterAndExpand" >
         <Button Text="Beers" Clicked="Button_Clicked" />
-    </StackLayout>
+        <Button Margin="50,0,50,0" Text="Quick Add" Clicked="Quick_Add_Clicked" />
+        <Button Margin="50,0,50,0" Text="Full Add" Clicked="Full_Add_Clicked" />
+        <Button Margin="50,0,50,0" Text="Your Booze" Clicked="Booze_List_Clicked" />
+                </StackLayout>
+            </StackLayout>
+            
+    <local:QuickAdd_List_PU x:Name="pu_Quick_Add_List" IsVisible="False" OnCancel="Quick_Add_List_PU_Cancel" OnBeer ="Quick_Add_Beer"/>
+    <local:YourBooze_List_PU x:Name="pu_Your_Booze_List" IsVisible="False" OnCancel="Your_Booze_List_PU_Cancel" />
+    <local:FullAdd_List_PU x:Name="pu_Full_Add_List" IsVisible="False" OnCancel="Full_Add_List_PU_Cancel" />
+    <local:QuickAdd_Beer_PU x:Name="pu_Quick_Add_Beer" IsVisible="False" OnCancel="Quick_Add_Beer_PU_Cancel" />
+       </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="BoozeHound.YourBooze_List_PU"
+             Style="{StaticResource popContent}">
+        
+     <StackLayout>
+        <StackLayout Orientation="Vertical" HeightRequest="250" WidthRequest="300" BackgroundColor="White">
+        <Label Text="Choose" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                           BackgroundColor="Blue" TextColor="White" />
+        <!-- Place new controls here -->
+        <Button Margin="50,0,50,0" Text="Beer" Clicked="Your_Booze_Beer_Clicked" />
+        <Button Margin="50,0,50,0" Text="Wine" Clicked="Your_Booze_Wine_Clicked" />
+        <Button Margin="50,0,50,0" Text="Spirit" Clicked="Your_Booze_Spirits_Clicked" />
+    
+
+        <Button Margin="75,0,75,0" x:Name="btnCancelYourBooze" Text="Cancel" HorizontalOptions="Start" 
+            Clicked="BtnCancelYourBooze_Clicked" Style="{StaticResource btnWhite}" />
+      </StackLayout>
+    </StackLayout>
+    
+</ContentView>

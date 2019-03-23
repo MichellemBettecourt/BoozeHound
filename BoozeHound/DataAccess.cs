@@ -89,7 +89,7 @@ namespace BoozeHound
 
         public static void AddTestBeers()
         {
-            Database.DeleteAll<Beer>();
+            //Database.DeleteAll<Beer>();
             Database.Insert(new Beer() { Name = "High Life", Rating = 1.5, Timestamp = DateTime.Now });
             Database.Insert(new Beer() { Name = "Lil Juicy", Rating = 4.5, Brewery = "Two Roads", Timestamp = DateTime.Now });
             Database.Insert(new Beer() { Name = "Horizontal Lines", Rating = 4.0, Brewery = "Finback", Timestamp = DateTime.Now });
