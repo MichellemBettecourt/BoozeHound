@@ -23,51 +23,58 @@
                                 Clicked="BtnBack_Clicked" />
                         <Button Grid.Column="1" x:Name="btnSearch" HorizontalOptions="Center" Text="Search" Clicked="BtnSearch_Clicked"
                                 Style="{StaticResource btnBlueMed}" />
-                        <Button Grid.Column="2" x:Name="btnFilter" HorizontalOptions="End" Text="Filter" Style="{StaticResource btnBlueMed}" />
+                        <Button Grid.Column="2" x:Name="btnFilter" HorizontalOptions="End" Text="Filter" Style="{StaticResource btnBlueMed}"
+                                Clicked="BtnFilter_Clicked" />
                     </Grid>
 
-                    <Grid StyleClass="gridHeader">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="1*" />
-                        </Grid.ColumnDefinitions>
-                        
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                        </Grid.RowDefinitions>
+                    <ListView x:Name="BeerList" SeparatorColor="Black" SelectionMode="None" ItemTapped="BeerList_ItemTapped" Margin="0">
+                        <ListView.Header>
+                            <Grid BackgroundColor="DarkBlue">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" StyleClass="gridHeaderLabel" Text="Name" />
-                        <Label Grid.Column="1" StyleClass="gridHeaderLabel" Text="Brewery" />
-                        <Label Grid.Column="2" StyleClass="gridHeaderLabel" Text="Rating" />
-                        <Label Grid.Column="3" StyleClass="gridHeaderLabel" Text="Style" />
-                        <Label Grid.Column="4" StyleClass="gridHeaderLabel" Text="ABV" />
-                    </Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
 
-                    <ListView x:Name="BeerList" SeparatorColor="Black" RowHeight="30">
+                                <Label Grid.Column="0" Style="{StaticResource gridHeaderLabel}"  Text="Name" Grid.Row="0" />
+                                <Label Grid.Column="1" Style="{StaticResource gridHeaderLabel}" Text="Brewery" Grid.Row="0" />
+                                <Label Grid.Column="2" Style="{StaticResource gridHeaderLabel}" Text="Rating" Grid.Row="0" />
+                                <Label Grid.Column="3" Style="{StaticResource gridHeaderLabel}" Text="Style" Grid.Row="0" />
+                                <Label Grid.Column="4" Style="{StaticResource gridHeaderLabel}" Text="ABV" Grid.Row="0" />
+                            </Grid>
+                        </ListView.Header>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0"  />
                                             <ColumnDefinition Width="3*" />
                                             <ColumnDefinition Width="3*" />
                                             <ColumnDefinition Width="1*" />
                                             <ColumnDefinition Width="2*" />
                                             <ColumnDefinition Width="1*" />
-                                            <ColumnDefinition Width="0" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Grid.Column="0" StyleClass="gridRowLabel" Text="{Binding Timestamp, StringFormat={StaticResource DateFormat}}" IsVisible="False" />
-                                        <Label Grid.Column="1" StyleClass="gridRowLabel" Text="{Binding Name}" />
-                                        <Label Grid.Column="2" StyleClass="gridRowLabel" Text="{Binding Brewery, TargetNullValue='N/A'}" />
-                                        <Label Grid.Column="3" StyleClass="gridRowLabel" Text="{Binding Rating}" />
-                                        <Label Grid.Column="4" StyleClass="gridRowLabel" Text="{Binding Style, TargetNullValue='N/A'}" />
-                                        <Label Grid.Column="5" StyleClass="gridRowLabel" Text="{Binding ABV, TargetNullValue='N/A'}" />
-                                        <Label Grid.Column="6" StyleClass="gridRowLabel" Text="{Binding Notes, TargetNullValue='N/A'}" IsVisible="False" />
+                                        <Label Style="{StaticResource gridRowLabel}"
+                                               Text="{Binding Timestamp}" IsVisible="False" />
+                                        <Label Grid.Column="0" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Name}" />
+                                        <Label Grid.Column="1" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Brewery, TargetNullValue='-'}" />
+                                        <Label Grid.Column="2" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Rating}" />
+                                        <Label Grid.Column="3" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Style, TargetNullValue='-'}" />
+                                        <Label Grid.Column="4" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding ABV, TargetNullValue='-'}" />
+                                        <Label Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Notes}" IsVisible="False" />
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -78,6 +85,7 @@
             </StackLayout>
 
             <BH:SearchPopup x:Name="popSearch" IsVisible="False" OnCancel="popSearch_Cancel" OnOk="popSearch_Ok" />
+            <BH:FilterBeerPopup x:Name="popFilter" IsVisible="False" OnOk="PopFilter_OnOk" />
         </AbsoluteLayout>
         
     </ContentPage.Content>

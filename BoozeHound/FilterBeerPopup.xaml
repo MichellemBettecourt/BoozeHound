@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoozeHound.FilterBeerPopup"
+             Style="{StaticResource popContent}">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="0" CornerRadius="10">
+            <StackLayout BackgroundColor="White" WidthRequest="300" HeightRequest="400" Orientation="Vertical">
+                <Label Text="Filter Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                <Grid VerticalOptions="Center" HorizontalOptions="Center">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.6*" />
+                        <ColumnDefinition Width="2.1*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3.3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Switch x:Name="switchBrewery" Grid.Row="0" Grid.Column="0" Toggled="SwitchBrewery_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
+                    <Label Text="Brewery" Grid.Row="0" Grid.Column="1" IsEnabled="False" x:Name="lblBrewery" 
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12" />
+                    <Picker x:Name="pickBrewery" Grid.Row="0" Grid.Column="2" IsEnabled="False" Margin="0"
+                            VerticalOptions="Center" FontSize="12" SelectedIndex="0" />
+
+                    <Switch x:Name="switchStyle" Grid.Row="1" Grid.Column="0" Toggled="SwitchStyle_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
+                    <Label Text="Style" Grid.Row="1" Grid.Column="1" IsEnabled="False" x:Name="lblStyle" 
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12" />
+                    <Picker x:Name="pickStyle" Grid.Row="1" Grid.Column="2" IsEnabled="False" 
+                            VerticalOptions="Center" FontSize="12" SelectedIndex="0" />
+
+                    <Switch x:Name="switchRating" Grid.Row="2" Grid.Column="0" Toggled="SwitchRating_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
+                    <Label Text="Rating" Grid.Row="2" Grid.Column="1" IsEnabled="False" x:Name="lblRating"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12" />
+                    <Picker x:Name="pickRating" Grid.Row="2" Grid.Column="2" ItemsSource="{StaticResource Ratings}"
+                            IsEnabled="False" VerticalOptions="Center" FontSize="12" SelectedIndex="0" />
+                    <Grid Grid.Row="2" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Switch x:Name="swRatingOrHigher" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="False" 
+                                VerticalOptions="Center" Toggled="SwitchOrHigher_Toggled" HorizontalOptions="Start"/>
+                        <Label Text="Or Higher" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblRatingOrHigher" IsEnabled="False"
+                               VerticalOptions="Center" />
+
+                        <Switch x:Name="swRatingOrLower" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="False"
+                                VerticalOptions="Center" Toggled="SwitchOrLower_Toggled" />
+                        <Label Text="Or Lower" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblRatingOrLower" IsEnabled="False"
+                               VerticalOptions="Center" HorizontalOptions="Start"/>
+                    </Grid>
+
+                    <Switch x:Name="switchAbv" Grid.Row="3" Grid.Column="0" Toggled="SwitchAbv_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8"/>
+                    <Label Text="ABV" Grid.Row="3" Grid.Column="1" x:Name="lblAbv" IsEnabled="False"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12"/>
+                    <Entry x:Name="txtAbv" Grid.Row="3" Grid.Column="2" IsEnabled="False" FontSize="12" VerticalOptions="Center"
+                           Keyboard="Numeric"/>
+                    <Grid Grid.Row="3" Grid.Column="3">
+                        <Switch x:Name="swAbvOrHigher" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="False"
+                                VerticalOptions="Center" Toggled="SwAbvOrHigher_Toggled"/>
+                        <Label Text="Or Higher" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblAbvOrHigher" 
+                               IsEnabled="False" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                        <Switch x:Name="swAbvOrLower" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="False"
+                                VerticalOptions="Center" Toggled="SwAbvOrLower_Toggled"/>
+                        <Label Text="Or Lower" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblAbvOrLower"
+                               IsEnabled="False" VerticalOptions="Center" HorizontalOptions="Start"/>
+                    </Grid>
+
+                    <Switch x:Name="switchDate" Grid.Row="4" Grid.Column="0" Toggled="SwitchDate_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8"/>
+                    <Label Text="Date Added" Grid.Row="4" Grid.Column="1" x:Name="lblDate" IsEnabled="False"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12"/>
+                    <DatePicker x:Name="datePicker1" Grid.Row="4" Grid.Column="2" IsEnabled="False" Format="M/d/yyyy"
+                                VerticalOptions="Center" FontSize="12" />
+                    <Grid Grid.Row="4" Grid.Column="3">
+                        <Switch x:Name="swDateOrLater" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="False"
+                                Toggled="SwDateOrLater_Toggled"/>
+                        <Label Text="Or Later" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblDateOrLater"
+                               IsEnabled="False" HorizontalOptions="Start"/>
+
+                        <Switch x:Name="swDateOrEarlier" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="False"
+                                Toggled="SwDateOrEarlier_Toggled"/>
+                        <Label Text="Or Earlier" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblDateOrEarlier"
+                               IsEnabled="False" HorizontalOptions="Start"/>
+                    </Grid>
+
+                    <Switch x:Name="swNotes" Grid.Row="5" Grid.Column="0" Toggled="SwNotes_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8"/>
+                    <Label Text="Note Contains" Grid.Row="5" Grid.Column="1" x:Name="lblNotes" IsEnabled="False"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12"/>
+                    <Entry x:Name="txtNotes" Grid.Row="5" Grid.Column="2" IsEnabled="False" VerticalOptions="Center"
+                           FontSize="12"/>
+
+                    <Switch x:Name="swOrderBy" Grid.Row="6" Grid.Column="0" Toggled="SwOrderBy_Toggled"
+                            VerticalOptions="Center" HorizontalOptions="Center" Scale=".8"/>
+                    <Label Text="Order By" Grid.Row="6" Grid.Column="1" x:Name="lblOrderBy" IsEnabled="False"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12"/>
+                    <Picker x:Name="pickOrderField" Grid.Row="6" Grid.Column="2" IsEnabled="False" VerticalOptions="Center"
+                            FontSize="12" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Name</x:String>
+                            <x:String>Brewery</x:String>
+                            <x:String>Date</x:String>
+                            <x:String>Style</x:String>
+                            <x:String>ABV</x:String>
+                            <x:String>Rating</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker x:Name="pickOrder" Grid.Row="6" Grid.Column="3" IsEnabled="False" VerticalOptions="Center"
+                            FontSize="12" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Ascending</x:String>
+                            <x:String>Descending</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+
+                <Grid VerticalOptions="End">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" x:Name="btnCancel" Text="Cancel" HorizontalOptions="Start" 
+                            Clicked="BtnCancel_Clicked" Style="{StaticResource btnWhite}" />
+                    <Button Grid.Column="1" x:Name="btnOk" Text="Ok" HorizontalOptions="End"
+                            Clicked="BtnOk_Clicked" Style="{StaticResource btnWhite}" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentView>

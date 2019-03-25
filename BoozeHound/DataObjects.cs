@@ -10,7 +10,7 @@ namespace BoozeHound
     public class Beer
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; }
+        public int Id { get; set; }
         [NotNull]
         public string Name { get; set; }
         public string Brewery { get; set; }
@@ -20,14 +20,14 @@ namespace BoozeHound
         [NotNull]
         public double Rating { get; set; }
         [NotNull]
-        public DateTime Timestamp { get; set; }
+        public string Date { get; set; }
     }
 
     [Table("Wines")]
     public class Wine
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; }
+        public int Id { get; set; }
         [NotNull]
         public string Name { get; set; }
         public string Winery { get; set; }
@@ -45,7 +45,7 @@ namespace BoozeHound
     public class Spirit
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; }
+        public int Id { get; set; }
         [NotNull]
         public string Name { get; set; }
         public string Distiller { get; set; }

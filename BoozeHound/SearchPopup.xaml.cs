@@ -26,6 +26,7 @@ namespace BoozeHound
         private void BtnCancel_Clicked(object sender, EventArgs e)
         {
             IsVisible = false;
+            txtSearch.Text = string.Empty;
         }
 
         private void BtnOk_Clicked(object sender, EventArgs e)
@@ -39,10 +40,13 @@ namespace BoozeHound
 
         private void TxtSearch_Completed(object sender, EventArgs e)
         {
-            if (onOk != null && !string.IsNullOrEmpty(txtSearch.Text))
+            string name = txtSearch.Text;
+
+            if (onOk != null && !string.IsNullOrEmpty(name))
             {
                 IsVisible = false;
-                onOk(sender, txtSearch.Text);
+                txtSearch.Text = string.Empty;
+                onOk(sender, name);
             }
         }
     }

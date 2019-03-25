@@ -15,7 +15,6 @@ namespace BoozeHound
 		public BeersPage ()
 		{
 			InitializeComponent ();
-            DataAccess.AddTestBeers();
             BeerList.ItemsSource = DataAccess.GetBeers();
         }
 
@@ -37,6 +36,32 @@ namespace BoozeHound
         private void BtnBack_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new MainPage();
+        }
+
+        private void BtnFilter_Clicked(object sender, EventArgs e)
+        {
+            popFilter.IsVisible = true;
+        }
+
+        private void PopFilter_OnOk(object sender, string e)
+        {
+            BeerList.ItemsSource = DataAccess.GetBeers(e);
+        }
+
+        async private void BeerList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string action = await DisplayActionSheet("", "Cancel", null, "View", "Delete");
+
+            if (action == "Delete")
+            {
+                Beer beer = (Beer)e.Item;
+                DataAccess.DeleteBeer(beer.Id);
+                BeerList.ItemsSource = DataAccess.GetBeers();
+            }
+            else
+            {
+
+            }
         }
     }
 }

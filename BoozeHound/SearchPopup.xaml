@@ -8,7 +8,7 @@
             <Frame Padding="0" CornerRadius="10">
                 <StackLayout Orientation="Vertical" HeightRequest="120" WidthRequest="300" BackgroundColor="White">
                     <Label Text="Search Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
-                           BackgroundColor="Blue" TextColor="White" />
+                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold" />
                     <Entry x:Name="txtSearch" HorizontalOptions="FillAndExpand" Placeholder="Search By Name"
                             Completed="TxtSearch_Completed" />
                     <Grid VerticalOptions="End">

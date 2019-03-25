@@ -3,6 +3,20 @@
     <Application.Resources>
         <x:String x:Key="DateFormat">{0:M/d/yyyy}</x:String>
 
+        <x:Array Type="{x:Type x:String}" x:Key="Ratings">
+            <x:String>5.0</x:String>
+            <x:String>4.5</x:String>
+            <x:String>4.0</x:String>
+            <x:String>3.5</x:String>
+            <x:String>3.0</x:String>
+            <x:String>2.5</x:String>
+            <x:String>2.0</x:String>
+            <x:String>1.5</x:String>
+            <x:String>1.0</x:String>
+            <x:String>0.5</x:String>
+            <x:String>0.0</x:String>
+        </x:Array>
+
         <StyleSheetExtension Source="styles.css" />
 
         <ResourceDictionary>
@@ -29,6 +43,26 @@
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="Padding" Value="2" />
                 <Setter Property="Margin" Value="4" />
+            </Style>
+            
+            <!--Grid Labels-->
+            <Style x:Key="gridHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="gridRowLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
 
             <!--Custom Popup ContentView-->

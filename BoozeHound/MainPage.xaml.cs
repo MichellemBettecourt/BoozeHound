@@ -12,6 +12,8 @@ namespace BoozeHound
         public MainPage()
         {
             InitializeComponent();
+
+            DataAccess.AddTestBeers();
         }
 
         private void Button_Clicked(object sender, EventArgs e)
