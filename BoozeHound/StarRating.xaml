@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoozeHound.StarRating">
+    <StackLayout Orientation="Horizontal" x:Name="starLayout">
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Image x:Name="OneHalf" Source="star_left_empty_sm.png" />
+            <Image x:Name="One" Source="star_right_empty_sm.png" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Image x:Name="TwoHalf" Source="star_left_empty_sm.png" />
+            <Image x:Name="Two" Source="star_right_empty_sm.png" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Image x:Name="ThreeHalf" Source="star_left_empty_sm.png" />
+            <Image x:Name="Three" Source="star_right_empty_sm.png" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Image x:Name="FourHalf" Source="star_left_empty_sm.png" />
+            <Image x:Name="Four" Source="star_right_empty_sm.png" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Image x:Name="FiveHalf" Source="star_left_empty_sm.png" />
+            <Image x:Name="Five" Source="star_right_empty_sm.png" />
+        </StackLayout>
+    </StackLayout>
+</ContentView>

@@ -2,17 +2,19 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="BoozeHound.QuickAdd_Beer_PU"
+             xmlns:local="clr-namespace:BoozeHound" 
              Style="{StaticResource popContent}">
-        
-     <StackLayout>
+
+    <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
         <StackLayout Orientation="Vertical" HeightRequest="250" WidthRequest="300" BackgroundColor="White">
         <Label Text="Add Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
                            BackgroundColor="Blue" TextColor="White" />
         <!-- Place new controls here -->
         <Entry Margin="20,20,20,0" x:Name="QABeer_Name" Placeholder="Name"></Entry>
         <Entry Margin="20,0,20,0" x:Name="QABeer_Brewery" Placeholder="Brewery"></Entry>
-        <Entry Margin="20,0,20,0"  x:Name="QABeer_Rating" Placeholder="Rating" Keyboard="Numeric"></Entry>
-        <StackLayout Orientation="Vertical" HeightRequest="120" WidthRequest="300" BackgroundColor="White">
+        <!--<Entry Margin="20,0,20,0"  x:Name="QABeer_Rating" Placeholder="Rating" Keyboard="Numeric"></Entry>-->
+            <local:StarRating x:Name="beerRating" HorizontalOptions="Center" />
+            <StackLayout Orientation="Vertical" HeightRequest="120" WidthRequest="300" BackgroundColor="White">
         <Grid VerticalOptions="End">
                         
                         <Grid.ColumnDefinitions>

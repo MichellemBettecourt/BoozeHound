@@ -36,38 +36,13 @@ namespace BoozeHound
             Database.CreateTable<Spirit>();
         }
 
-        
-
-        public static void SaveWine(Wine wine)
-        {
-            try
-            {
-                Database.Insert(wine);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception in SaveWine(): {0}", ex.Message);
-            }
-        }
-
-        public static void SaveSpirit(Spirit spirit)
-        {
-            try
-            {
-                Database.Insert(spirit);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception in SaveSpirit(): {0}", ex.Message);
-            }
-        }
-
         #region Beer Methods
 
         public static void SaveBeer(Beer beer)
         {
             try
             {
+                beer.Date = DateTime.Now.ToShortDateString();
                 Database.Insert(beer);
             }
             catch (Exception ex)
@@ -131,9 +106,35 @@ namespace BoozeHound
         #endregion Beer Methods
 
         #region Wine Methods
+
+        public static void SaveWine(Wine wine)
+        {
+            try
+            {
+                Database.Insert(wine);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in SaveWine(): {0}", ex.Message);
+            }
+        }
+
         #endregion Wine Methods
 
-        #region Spirit Methods
+        #region Spirit 
+
+        public static void SaveSpirit(Spirit spirit)
+        {
+            try
+            {
+                Database.Insert(spirit);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in SaveSpirit(): {0}", ex.Message);
+            }
+        }
+
         #endregion Spirit Methods
     }
 }

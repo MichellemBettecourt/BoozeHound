@@ -53,9 +53,10 @@ namespace BoozeHound
         {
             string action = await DisplayActionSheet("", "Cancel", null, "View", "Delete");
 
+            Beer beer = (Beer)e.Item;
+
             if (action == "Delete")
             {
-                Beer beer = (Beer)e.Item;
                 DataAccess.DeleteBeer(beer.Id);
                 BeerList.ItemsSource = DataAccess.GetBeers();
             }

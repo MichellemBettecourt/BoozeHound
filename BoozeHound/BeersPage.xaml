@@ -68,11 +68,11 @@
                                         <Label Grid.Column="1" Style="{StaticResource gridRowLabel}" 
                                                Text="{Binding Brewery, TargetNullValue='-'}" />
                                         <Label Grid.Column="2" Style="{StaticResource gridRowLabel}" 
-                                               Text="{Binding Rating}" />
+                                               Text="{Binding Rating, StringFormat='{0:F1}'}" />
                                         <Label Grid.Column="3" Style="{StaticResource gridRowLabel}" 
                                                Text="{Binding Style, TargetNullValue='-'}" />
                                         <Label Grid.Column="4" Style="{StaticResource gridRowLabel}" 
-                                               Text="{Binding ABV, TargetNullValue='-'}" />
+                                               Text="{Binding ABV, TargetNullValue='-', StringFormat='{0:F1}%'}" />
                                         <Label Style="{StaticResource gridRowLabel}" 
                                                Text="{Binding Notes}" IsVisible="False" />
                                     </Grid>

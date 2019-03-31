@@ -24,11 +24,23 @@ namespace BoozeHound
         }
 
         private void BtnSaveQABeer_Clicked(object sender, EventArgs e)
-        { 
-            Double rating = Convert.ToDouble(QABeer_Rating.Text);
-            Beer add = new Beer() { Name = QABeer_Name.Text, Rating = rating, Brewery = QABeer_Brewery.Text};
+        {
+            if (string.IsNullOrEmpty(QABeer_Name.Text))
+            {
+                App.Current.MainPage.DisplayAlert("", "Name required.", "Ok");
+                return;
+            }
+
+            if (beerRating.Rating == 0)
+            {
+                App.Current.MainPage.DisplayAlert("", "Rating required.", "Ok");
+                return;
+            }
+
+            Beer add = new Beer() { Name = QABeer_Name.Text.ToUpper(), Rating = beerRating.Rating, Brewery = QABeer_Brewery.Text};
             DataAccess.SaveBeer(add);
             IsVisible = false;
+            App.Current.MainPage.DisplayAlert("", add.Name + " saved to database.", "Ok");
         }
     }
 }

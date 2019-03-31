@@ -91,13 +91,18 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoozeHound\BoozeHound.csproj">
       <Project>{504F9BC6-E62B-46B3-AB32-9468FCA80BB0}</Project>
       <Name>BoozeHound</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\star_left_empty_sm.png" />
+    <AndroidResource Include="Resources\drawable\star_left_filled_sm.png" />
+    <AndroidResource Include="Resources\drawable\star_right_empty_sm.png" />
+    <AndroidResource Include="Resources\drawable\star_right_filled_sm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

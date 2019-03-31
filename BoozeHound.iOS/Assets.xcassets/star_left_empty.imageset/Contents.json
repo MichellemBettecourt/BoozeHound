@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "scale": "1x",
+      "idiom": "universal",
+      "filename": "star_left_empty_sm2.png"
+    },
+    {
+      "scale": "2x",
+      "idiom": "universal",
+      "filename": "star_left_empty_sm3.png"
+    },
+    {
+      "scale": "3x",
+      "idiom": "universal",
+      "filename": "star_left_empty_sm4.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
