@@ -74,11 +74,11 @@ namespace BoozeHound
             if (switchDate.IsToggled)
             {
                 if (swDateOrLater.IsToggled)
-                    filterArgs.Add("Date >= '" + datePicker1.Date.ToShortDateString() + "'");
+                    filterArgs.Add("Date >= '" + datePicker1.Date + "'");
                 else if (swDateOrEarlier.IsToggled)
-                    filterArgs.Add("Date <= '" + datePicker1.Date.ToShortDateString() + "'");
+                    filterArgs.Add("Date <= '" + datePicker1.Date + "'");
                 else
-                    filterArgs.Add("Date = '" + datePicker1.Date.ToShortDateString() + "'");
+                    filterArgs.Add("Date = '" + datePicker1.Date + "'");
             }
 
             if (swNotes.IsToggled && !string.IsNullOrEmpty(txtNotes.Text))

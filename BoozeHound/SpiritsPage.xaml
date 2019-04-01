@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoozeHound.SpiritsPage">
+    <ContentPage.Content>
+        <AbsoluteLayout Style="{StaticResource absPageLayout}">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Grid BackgroundColor="Blue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3.3*" />
+                            <ColumnDefinition Width="3.4*" />
+                            <ColumnDefinition Width="3.3*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Column="0" x:Name="btnBack" HorizontalOptions="Start" Text="Back" Style="{StaticResource btnBlueMed}"
+                                Clicked="BtnBack_Clicked" />
+                        <Button Grid.Column="1" x:Name="btnSearch" HorizontalOptions="Center" Text="Search"
+                                Style="{StaticResource btnBlueMed}" />
+                        <Button Grid.Column="2" x:Name="btnFilter" HorizontalOptions="End" Text="Filter" Style="{StaticResource btnBlueMed}"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

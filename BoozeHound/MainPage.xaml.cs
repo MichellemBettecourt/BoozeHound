@@ -44,9 +44,6 @@ namespace BoozeHound
 
         private async void Quick_Add_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new BeersPage());
-            //pu_Quick_Add_List.IsVisible = true;
-
             string action = await DisplayActionSheet("Quick Add", "Cancel", null, "Beer", "Wine", "Spirit");
 
             if (action == "Beer")
@@ -74,9 +71,6 @@ namespace BoozeHound
         /********************************************************************/
         private async void Booze_List_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new BeersPage());
-            //pu_Quick_Add_List.IsVisable = true;
-            //pu_Your_Booze_List.IsVisible = true;
             string action = await DisplayActionSheet("Your Booze", "Cancel", null, "Beer", "Wine", "Spirit");
             
             if (action == "Beer")
@@ -85,11 +79,11 @@ namespace BoozeHound
             }
             else if (action == "Wine")
             {
-
+                App.Current.MainPage = new WinesPage();
             }
             else if (action == "Spirit")
             {
-
+                App.Current.MainPage = new SpiritsPage();
             }
         }
 
