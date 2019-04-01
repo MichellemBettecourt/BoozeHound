@@ -20,7 +20,7 @@ namespace BoozeHound
         [NotNull]
         public double Rating { get; set; }
         [NotNull]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
     }
 
     [Table("Wines")]

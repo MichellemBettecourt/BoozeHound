@@ -42,7 +42,10 @@ namespace BoozeHound
         {
             try
             {
-                beer.Date = DateTime.Now.ToShortDateString();
+                beer.Date = DateTime.Now;
+                beer.Name = beer.Name.ToUpper();
+                beer.Brewery = beer.Brewery?.ToUpper();
+                beer.Style = beer.Style?.ToUpper();
                 Database.Insert(beer);
             }
             catch (Exception ex)
@@ -92,20 +95,51 @@ namespace BoozeHound
 
         public static void AddTestBeers()
         {
-            Database.DeleteAll<Beer>();
-            Database.Insert(new Beer() {Name="High Life",Rating=1.5,Date=DateTime.Now.ToShortDateString(),Style="Lager",ABV=5.0,
-                Brewery="Miller",Notes="Unremarkable and bland, but drinkable."});
-            Database.Insert(new Beer() {Name="Lil Juicy",Rating=4.5,Brewery="Two Roads",Date=DateTime.Now.ToShortDateString(),
-                ABV=5.2,Style="IPA",Notes="Juicy and delicious. Incredibly drinkable."});
-            Database.Insert(new Beer() {Name="Horizontal Lines",Rating=4.0,Brewery="Finback",Date=DateTime.Now.ToShortDateString(),
-                Style="Pilsner",Notes="Non-traditional, but can still taste the pilsner characteristics. Somewhat herbally."});
-            Database.Insert(new Beer() {Name="John Henry Milk Stout",Rating=4.0,Date=DateTime.Now.ToShortDateString(),
-                Style="Stout",Notes="Creamy and delicious."});
+            if (Database.Table<Beer>().Count() == 0)
+            {
+                Database.Insert(new Beer()
+                {
+                    Name = "HIGH LIFE",
+                    Rating = 1.5,
+                    Date = DateTime.Now.AddDays(-20),
+                    Style = "LAGER",
+                    ABV = 5.0,
+                    Brewery = "MILLER",
+                    Notes = "Unremarkable and bland, but drinkable."
+                });
+                Database.Insert(new Beer()
+                {
+                    Name = "LIL JUICY",
+                    Rating = 4.5,
+                    Brewery = "TWO ROADS",
+                    Date = DateTime.Now,
+                    ABV = 5.2,
+                    Style = "IPA",
+                    Notes = "Juicy and delicious. Incredibly drinkable."
+                });
+                Database.Insert(new Beer()
+                {
+                    Name = "HORIZONTAL LINES",
+                    Rating = 4.0,
+                    Brewery = "FINBACK",
+                    Date = DateTime.Now.AddDays(-14),
+                    Style = "PILSNER",
+                    Notes = "Non-traditional, but can still taste the pilsner characteristics. Somewhat herbally."
+                });
+                Database.Insert(new Beer()
+                {
+                    Name = "JOHN HENRY MILK STOUT",
+                    Rating = 4.0,
+                    Date = DateTime.Now.AddDays(-32),
+                    Style = "STOUT",
+                    Notes = "Creamy and delicious."
+                });
+            }
         }
 
-        #endregion Beer Methods
+#endregion Beer Methods
 
-        #region Wine Methods
+            #region Wine Methods
 
         public static void SaveWine(Wine wine)
         {
@@ -119,9 +153,9 @@ namespace BoozeHound
             }
         }
 
-        #endregion Wine Methods
+            #endregion Wine Methods
 
-        #region Spirit 
+            #region Spirit 
 
         public static void SaveSpirit(Spirit spirit)
         {
@@ -135,6 +169,6 @@ namespace BoozeHound
             }
         }
 
-        #endregion Spirit Methods
+            #endregion Spirit Methods
     }
 }

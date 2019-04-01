@@ -37,7 +37,7 @@ namespace BoozeHound
                 return;
             }
 
-            Beer add = new Beer() { Name = QABeer_Name.Text.ToUpper(), Rating = beerRating.Rating, Brewery = QABeer_Brewery.Text};
+            Beer add = new Beer() { Name = QABeer_Name.Text, Rating = beerRating.Rating, Brewery = QABeer_Brewery.Text};
             DataAccess.SaveBeer(add);
             IsVisible = false;
             App.Current.MainPage.DisplayAlert("", add.Name + " saved to database.", "Ok");
