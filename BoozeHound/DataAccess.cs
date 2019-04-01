@@ -95,6 +95,7 @@ namespace BoozeHound
 
         public static void AddTestBeers()
         {
+            //Database.DeleteAll<Beer>();
             if (Database.Table<Beer>().Count() == 0)
             {
                 Database.Insert(new Beer()

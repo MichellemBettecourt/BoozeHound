@@ -18,16 +18,27 @@ namespace BoozeHound
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new BeersPage());
             App.Current.MainPage = new BeersPage();
         }
 
         /********************************************************************/
 
-        private void Full_Add_Clicked(object sender, EventArgs e)
+        private async void Full_Add_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new BeersPage());
-            pu_Full_Add_List.IsVisible = true;
+            string action = await DisplayActionSheet("Add", "Cancel", null, "Beer", "Wine", "Spirit");
+
+            if (action == "Beer")
+            {
+
+            }
+            else if (action == "Wine")
+            {
+
+            }
+            else if (action == "Spirit")
+            {
+
+            }
         }
 
         private void Full_Add_List_PU_Ok(object sender, string name)

@@ -18,9 +18,17 @@ namespace BoozeHound
             InitializeComponent();
         }
 
+        private void ClearForm()
+        {
+            QABeer_Name.Text = string.Empty;
+            QABeer_Brewery.Text = string.Empty;
+            beerRating.SetRating(0);
+        }
+
         private void BtnCancelQABeer_Clicked(object sender, EventArgs e)
         {
             IsVisible = false;
+            ClearForm();
         }
 
         private void BtnSaveQABeer_Clicked(object sender, EventArgs e)
@@ -40,6 +48,7 @@ namespace BoozeHound
             Beer add = new Beer() { Name = QABeer_Name.Text, Rating = beerRating.Rating, Brewery = QABeer_Brewery.Text};
             DataAccess.SaveBeer(add);
             IsVisible = false;
+            ClearForm();
             App.Current.MainPage.DisplayAlert("", add.Name + " saved to database.", "Ok");
         }
     }
