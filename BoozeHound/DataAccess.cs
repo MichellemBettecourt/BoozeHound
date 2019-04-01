@@ -92,7 +92,7 @@ namespace BoozeHound
 
         public static void AddTestBeers()
         {
-            Database.DeleteAll<Beer>();
+            /*Database.DeleteAll<Beer>();
             Database.Insert(new Beer() {Name="High Life",Rating=1.5,Date=DateTime.Now.ToShortDateString(),Style="Lager",ABV=5.0,
                 Brewery="Miller",Notes="Unremarkable and bland, but drinkable."});
             Database.Insert(new Beer() {Name="Lil Juicy",Rating=4.5,Brewery="Two Roads",Date=DateTime.Now.ToShortDateString(),
@@ -100,7 +100,7 @@ namespace BoozeHound
             Database.Insert(new Beer() {Name="Horizontal Lines",Rating=4.0,Brewery="Finback",Date=DateTime.Now.ToShortDateString(),
                 Style="Pilsner",Notes="Non-traditional, but can still taste the pilsner characteristics. Somewhat herbally."});
             Database.Insert(new Beer() {Name="John Henry Milk Stout",Rating=4.0,Date=DateTime.Now.ToShortDateString(),
-                Style="Stout",Notes="Creamy and delicious."});
+                Style="Stout",Notes="Creamy and delicious."});*/
         }
 
         #endregion Beer Methods
