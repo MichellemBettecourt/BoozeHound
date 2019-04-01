@@ -1,4 +1,5 @@
-*******************************************************************
+﻿*******************************************************************
+
 Group Members: 
     Michelle Bettencourt
     Josh Sherman
@@ -23,4 +24,8 @@ changing a few entry feilds.
 
 Finally, we have to add in the ability to use the camera and take a
  photo for your entries. We also want to make the app more visually
- appealing. 
+appealing
+
+We are on track to be finished on time. 
+
+Git Repository: https://github.com/MichellemBettecourt/BoozeHound

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="BoozeHound.FullAdd_Beer"
+             xmlns:local="clr-namespace:BoozeHound" >
+    <ContentPage.Content>
+         <ScrollView>
+         <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
+        
+        <Entry Margin="20,20,20,0" x:Name="Beer_Name" Placeholder="Name"></Entry>
+        <Entry Margin="20,0,20,0" x:Name="Beer_Brewery" Placeholder="Brewery"></Entry>
+        <local:StarRating x:Name="beerRating" HorizontalOptions="Center" />
+        
+        <Entry Margin="20,20,20,0" x:Name="Beer_Style" Placeholder="Style"></Entry>
+        <Entry Margin="20,0,20,0" x:Name="Beer_ABV" Placeholder="ABV"></Entry>
+        <Entry Margin="20,0,20,0" x:Name="Beer_Notes" Placeholder="Notes"></Entry>
+            
+            <Grid VerticalOptions="End">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Column="0" x:Name="btnCancelQABeer" Text="Cancel" HorizontalOptions="Start" 
+                            Clicked="BtnCancelQABeer_Clicked" Style="{StaticResource btnWhite}" />
+                        <Button Grid.Column="1" x:Name="btnSaveQABeer" Text="Ok" HorizontalOptions="End"
+                            Clicked="BtnSaveQABeer_Clicked" Style="{StaticResource btnWhite}" />
+                    </Grid>
+            
+       </StackLayout>
+            </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
