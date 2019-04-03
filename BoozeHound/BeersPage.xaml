@@ -7,7 +7,7 @@
         <AbsoluteLayout Style="{StaticResource absPageLayout}">
 
             <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
                     <Grid BackgroundColor="Blue">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3.3*" />
@@ -31,11 +31,11 @@
                         <ListView.Header>
                             <Grid BackgroundColor="DarkBlue">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*" />
-                                    <ColumnDefinition Width="3*" />
-                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2.9*" />
+                                    <ColumnDefinition Width="2.9*" />
+                                    <ColumnDefinition Width=".9*" />
                                     <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1.3*" />
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                                 <Label Grid.Column="1" Style="{StaticResource gridHeaderLabel}" Text="Brewery" Grid.Row="0" />
                                 <Label Grid.Column="2" Style="{StaticResource gridHeaderLabel}" Text="Rating" Grid.Row="0" />
                                 <Label Grid.Column="3" Style="{StaticResource gridHeaderLabel}" Text="Style" Grid.Row="0" />
-                                <Label Grid.Column="4" Style="{StaticResource gridHeaderLabel}" Text="ABV" Grid.Row="0" />
+                                <Label Grid.Column="4" Style="{StaticResource gridHeaderLabel}" Text="Date" Grid.Row="0" />
                             </Grid>
                         </ListView.Header>
                         <ListView.ItemTemplate>
@@ -54,15 +54,13 @@
                                 <ViewCell>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="3*" />
-                                            <ColumnDefinition Width="3*" />
-                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="2.9*" />
+                                            <ColumnDefinition Width="2.9*" />
+                                            <ColumnDefinition Width=".9*" />
                                             <ColumnDefinition Width="2*" />
-                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1.3*" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Style="{StaticResource gridRowLabel}"
-                                               Text="{Binding Timestamp}" IsVisible="False" />
                                         <Label Grid.Column="0" Style="{StaticResource gridRowLabel}" 
                                                Text="{Binding Name}" />
                                         <Label Grid.Column="1" Style="{StaticResource gridRowLabel}" 
@@ -71,10 +69,10 @@
                                                Text="{Binding Rating, StringFormat='{0:F1}'}" />
                                         <Label Grid.Column="3" Style="{StaticResource gridRowLabel}" 
                                                Text="{Binding Style, TargetNullValue='-'}" />
+                                        <!--<Label Grid.Column="4" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding ABV, TargetNullValue='-', StringFormat='{0:F1}%'}" />-->
                                         <Label Grid.Column="4" Style="{StaticResource gridRowLabel}" 
-                                               Text="{Binding ABV, TargetNullValue='-', StringFormat='{0:F1}%'}" />
-                                        <Label Style="{StaticResource gridRowLabel}" 
-                                               Text="{Binding Notes}" IsVisible="False" />
+                                               Text="{Binding Date, StringFormat='{0:M/d/yy}'}" />
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>

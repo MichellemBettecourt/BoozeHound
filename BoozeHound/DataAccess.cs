@@ -54,6 +54,14 @@ namespace BoozeHound
             }
         }
 
+        public static void UpdateBeer(Beer beer)
+        {
+            beer.Name = beer.Name.ToUpper();
+            beer.Brewery = beer.Brewery?.ToUpper();
+            beer.Style = beer.Style?.ToUpper();
+            Database.Update(beer);
+        }
+
         public static void DeleteBeer(int id)
         {
             Database.Delete<Beer>(id);
@@ -96,6 +104,7 @@ namespace BoozeHound
         public static void AddTestBeers()
         {
             //Database.DeleteAll<Beer>();
+            Database.CreateTable<Beer>();
             if (Database.Table<Beer>().Count() == 0)
             {
                 Database.Insert(new Beer()
@@ -138,9 +147,9 @@ namespace BoozeHound
             }
         }
 
-#endregion Beer Methods
+        #endregion Beer Methods
 
-            #region Wine Methods
+        #region Wine Methods
 
         public static void SaveWine(Wine wine)
         {
@@ -154,9 +163,9 @@ namespace BoozeHound
             }
         }
 
-            #endregion Wine Methods
+        #endregion Wine Methods
 
-            #region Spirit 
+        #region Spirit 
 
         public static void SaveSpirit(Spirit spirit)
         {
@@ -170,6 +179,6 @@ namespace BoozeHound
             }
         }
 
-            #endregion Spirit Methods
+        #endregion Spirit Methods
     }
 }

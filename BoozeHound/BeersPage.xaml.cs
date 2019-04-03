@@ -51,7 +51,7 @@ namespace BoozeHound
 
         async private void BeerList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            string action = await DisplayActionSheet("", "Cancel", null, "View", "Delete");
+            string action = await DisplayActionSheet("", "Cancel", "Delete", "View");
 
             Beer beer = (Beer)e.Item;
 
@@ -60,9 +60,9 @@ namespace BoozeHound
                 DataAccess.DeleteBeer(beer.Id);
                 BeerList.ItemsSource = DataAccess.GetBeers();
             }
-            else
+            else if (action == "View")
             {
-
+                App.Current.MainPage = new FullAdd_Beer(beer);
             }
         }
     }

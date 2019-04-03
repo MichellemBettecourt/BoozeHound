@@ -43,6 +43,7 @@
     <Compile Remove="MyPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="beer_bottle.png" />
     <None Remove="star_left_empty.png" />
     <None Remove="star_left_empty_sm.png" />
     <None Remove="star_left_filled_sm.png" />
@@ -55,6 +56,9 @@
     <Content Include="star_left_filled_sm.png" />
     <Content Include="star_right_empty_sm.png" />
     <Content Include="star_right_filled_sm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="beer_bottle.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="FullAdd_List_PU.xaml.cs">
