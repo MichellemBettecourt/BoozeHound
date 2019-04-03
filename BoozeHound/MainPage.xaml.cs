@@ -13,7 +13,7 @@ namespace BoozeHound
         {
             InitializeComponent();
 
-            DataAccess.AddTestBeers();
+            //DataAccess.AddTestBeers();
         }
 
         private void Button_Clicked(object sender, EventArgs e)
