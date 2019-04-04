@@ -8,8 +8,9 @@
          <StackLayout>
                 <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="Center">
                     <Frame BorderColor="Black" Padding="0" Margin="0, 20, 0, 0" HeightRequest="128" WidthRequest="128">
-                        <Image x:Name="BeerImage" />
+                        <Image x:Name="BeerImage" Aspect="AspectFill" />
                     </Frame>
+                    <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" />
                     <Label x:Name="DateLabel" FontSize="12" IsVisible="False" HorizontalOptions="Center" />
                 </StackLayout>
 

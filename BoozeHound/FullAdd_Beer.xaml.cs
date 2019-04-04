@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Plugin.Media;
+
 namespace BoozeHound
 {
     public partial class FullAdd_Beer : ContentPage
@@ -16,6 +18,7 @@ namespace BoozeHound
             InitializeComponent();
             isNew = true;
             BeerImage.Source = ImageSource.FromResource("BoozeHound.beer_bottle.png");
+            
         }
 
         public FullAdd_Beer(Beer b)
@@ -32,7 +35,7 @@ namespace BoozeHound
             Beer_Notes.Text = beer.Notes;
 
             DateLabel.IsVisible = true;
-            DateLabel.Text = "Added on " + beer.Date.ToShortDateString();
+            DateLabel.Text = $"{beer.Name} added on " + beer.Date.ToShortDateString();
 
             if (false)
             {
@@ -99,6 +102,24 @@ namespace BoozeHound
             height += (5 * 10);
 
             beerForm.HeightRequest = height;
+        }
+
+        private async void CameraButton_Clicked(object sender, EventArgs e)
+        {
+            if (CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported)
+            {
+                var photo = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
+                    Name = DateTime.Now.ToString() + ".jpg",
+                    AllowCropping = true
+                });
+
+                if (photo != null)
+                {
+                    BeerImage.Source = ImageSource.FromFile(photo.Path);
+                }
+            }
         }
     }
 }
