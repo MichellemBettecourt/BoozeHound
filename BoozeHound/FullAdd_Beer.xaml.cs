@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Plugin.Media;
+using System.IO;
 
 namespace BoozeHound
 {
@@ -17,8 +18,8 @@ namespace BoozeHound
         {
             InitializeComponent();
             isNew = true;
+            beer = new Beer();
             BeerImage.Source = ImageSource.FromResource("BoozeHound.beer_bottle.png");
-            
         }
 
         public FullAdd_Beer(Beer b)
@@ -35,11 +36,11 @@ namespace BoozeHound
             Beer_Notes.Text = beer.Notes;
 
             DateLabel.IsVisible = true;
-            DateLabel.Text = $"{beer.Name} added on " + beer.Date.ToShortDateString();
+            DateLabel.Text = $"{beer.Name} added on {beer.Date.ToShortDateString()}";
 
-            if (false)
+            if (!string.IsNullOrEmpty(beer.ImagePath))
             {
-
+                BeerImage.Source = ImageSource.FromFile(beer.ImagePath);
             }
             else
             {
@@ -57,9 +58,6 @@ namespace BoozeHound
 
         private void BtnSaveQABeer_Clicked(object sender, EventArgs e)
         {
-            if (!isNew)
-                return;
-
             if (string.IsNullOrEmpty(Beer_Name.Text))
             {
                 App.Current.MainPage.DisplayAlert("", "Name required.", "Ok");
@@ -71,18 +69,28 @@ namespace BoozeHound
                 App.Current.MainPage.DisplayAlert("", "Rating required.", "Ok");
                 return;
             }
-            double abv = Convert.ToDouble(Beer_ABV.Text);
-            Beer add = new Beer()
+
+            double? abv = Convert.ToDouble(Beer_ABV?.Text);
+
+            beer.Name = Beer_Name.Text;
+            beer.Brewery = Beer_Brewery.Text;
+            beer.Rating = beerRating.Rating;
+            beer.Style = Beer_Style.Text;
+            beer.ABV = string.IsNullOrEmpty(Beer_ABV.Text) ? beer.ABV : Convert.ToDouble(Beer_ABV.Text);
+            beer.Notes = Beer_Notes.Text;
+
+            if (isNew)
             {
-                Name = Beer_Name.Text,
-                Rating = beerRating.Rating,
-                Brewery = Beer_Brewery.Text,
-                Style = Beer_Style.Text,
-                ABV = abv,
-                Notes = Beer_Name.Text
-            };
-            DataAccess.SaveBeer(add);
-            App.Current.MainPage.DisplayAlert("", add.Name + " saved to database.", "Ok");
+                DataAccess.SaveBeer(beer);
+                App.Current.MainPage.DisplayAlert("", beer.Name + " saved to database.", "Ok");
+            }
+            else
+            {
+                DataAccess.UpdateBeer(beer);
+                App.Current.MainPage.DisplayAlert("", beer.Name + " has been updated.", "Ok");
+            }
+
+            
             App.Current.MainPage = new MainPage();
         }
 
@@ -101,6 +109,7 @@ namespace BoozeHound
             // Add padding between controls
             height += (5 * 10);
 
+            // Set control height
             beerForm.HeightRequest = height;
         }
 
@@ -117,7 +126,12 @@ namespace BoozeHound
 
                 if (photo != null)
                 {
+                    // Delete old image if retaking photo
+                    if (!string.IsNullOrEmpty(beer.ImagePath))
+                        File.Delete(beer.ImagePath);
+
                     BeerImage.Source = ImageSource.FromFile(photo.Path);
+                    beer.ImagePath = photo.Path;
                 }
             }
         }

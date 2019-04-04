@@ -21,6 +21,7 @@ namespace BoozeHound
         public double Rating { get; set; }
         [NotNull]
         public DateTime Date { get; set; }
+        public string ImagePath { get; set; }
     }
 
     [Table("Wines")]
@@ -38,7 +39,8 @@ namespace BoozeHound
         [NotNull]
         public double Rating { get; set; }
         [NotNull]
-        public DateTime Timestamp { get; set; }
+        public DateTime Date { get; set; }
+        public string ImagePath { get; set; }
     }
 
     [Table("Spirits")]
@@ -56,6 +58,7 @@ namespace BoozeHound
         [NotNull]
         public float Rating { get; set; }
         [NotNull]
-        public DateTime Timestamp { get; set; }
+        public DateTime Date { get; set; }
+        public string ImagePath { get; set; }
     }
 }
