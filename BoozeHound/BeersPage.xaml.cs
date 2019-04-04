@@ -57,7 +57,7 @@ namespace BoozeHound
 
             if (action == "Delete")
             {
-                DataAccess.DeleteBeer(beer.Id);
+                DataAccess.DeleteBeer(beer.Id, beer.ImagePath);
                 BeerList.ItemsSource = DataAccess.GetBeers();
             }
             else if (action == "View")

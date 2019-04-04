@@ -121,7 +121,7 @@ namespace BoozeHound
                 {
                     PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
                     Name = DateTime.Now.ToString() + ".jpg",
-                    AllowCropping = true
+                    Directory = "Beer"
                 });
 
                 if (photo != null)

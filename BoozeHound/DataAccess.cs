@@ -62,8 +62,11 @@ namespace BoozeHound
             Database.Update(beer);
         }
 
-        public static void DeleteBeer(int id)
+        public static void DeleteBeer(int id, string image)
         {
+            if (!string.IsNullOrEmpty(image))
+                File.Delete(image);
+
             Database.Delete<Beer>(id);
         }
 
