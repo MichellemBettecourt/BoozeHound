@@ -28,12 +28,19 @@ namespace BoozeHound
 
         public static void CreateTables()
         {
-            //Database.DropTable<Beer>();
-            //Database.DropTable<Wine>();
-            //Database.DropTable<Spirit>();
-            Database.CreateTable<Beer>();
-            Database.CreateTable<Wine>();
-            Database.CreateTable<Spirit>();
+            try
+            {
+                //Database.DropTable<Beer>();
+                //Database.DropTable<Wine>();
+                //Database.DropTable<Spirit>();
+                Database.CreateTable<Beer>();
+                Database.CreateTable<Wine>();
+                Database.CreateTable<Spirit>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in CreateTables(): {0}", ex.Message);
+            }
         }
 
         #region Beer Methods
@@ -56,23 +63,46 @@ namespace BoozeHound
 
         public static void UpdateBeer(Beer beer)
         {
-            beer.Name = beer.Name.ToUpper();
-            beer.Brewery = beer.Brewery?.ToUpper();
-            beer.Style = beer.Style?.ToUpper();
-            Database.Update(beer);
+            try
+            {
+                beer.Name = beer.Name.ToUpper();
+                beer.Brewery = beer.Brewery?.ToUpper();
+                beer.Style = beer.Style?.ToUpper();
+                Database.Update(beer);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in UpdateBeer(): {0}", ex.Message);
+            }
         }
 
-        public static void DeleteBeer(int id, string image)
+        public static void DeleteBeer(Beer beer)
         {
-            if (!string.IsNullOrEmpty(image))
-                File.Delete(image);
+            try
+            {
+                if (!string.IsNullOrEmpty(beer.ImagePath))
+                    File.Delete(beer.ImagePath);
 
-            Database.Delete<Beer>(id);
+                Database.Delete<Beer>(beer.Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in DeleteBeer(): {0}", ex.Message);
+            }
         }
 
         public static List<Beer> GetBeers()
         {
-            return Database.Table<Beer>().ToList();
+            try
+            {
+                return Database.Table<Beer>().ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetBeers(): {0}", ex.Message);
+            }
+
+            return new List<Beer>();
         }
 
         public static List<Beer> GetBeers(string query)
@@ -83,7 +113,7 @@ namespace BoozeHound
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Exception in GetBeers(query): {0}", ex.Message);
             }
 
             return new List<Beer>();
@@ -91,17 +121,44 @@ namespace BoozeHound
 
         public static List<Beer> SearchBeers(string name)
         {
-            return Database.Query<Beer>("SELECT * FROM Beers WHERE Name LIKE '%" + name + "%';");
+            try
+            {
+                return Database.Query<Beer>($"SELECT * FROM Beers WHERE Name LIKE '%{name}%';");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in SearchBeers(): {0}", ex.Message);
+            }
+
+            return new List<Beer>();
         }
 
         public static string[] GetBreweries()
         {
-            return Database.Query<Beer>("SELECT DISTINCT Brewery FROM Beers WHERE Brewery NOT NULL ORDER BY Brewery").Select(x => x.Brewery).ToArray();
+            try
+            {
+                return Database.Query<Beer>("SELECT DISTINCT Brewery FROM Beers WHERE Brewery NOT NULL ORDER BY Brewery;").Select(x => x.Brewery).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception is GetBreweries(): {0}", ex.Message);
+            }
+
+            return new string[] { };
         }
 
         public static string[] GetBeerStyles()
         {
-            return Database.Query<Beer>("SELECT DISTINCT Style FROM Beers Where Style NOT NULL ORDER BY Style").Select(x => x.Style).ToArray();
+            try
+            {
+                return Database.Query<Beer>("SELECT DISTINCT Style FROM Beers Where Style NOT NULL ORDER BY Style;").Select(x => x.Style).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetBeerStyles(): {0}", ex.Message);
+            }
+
+            return new string[] { };
         }
 
         public static void AddTestBeers()
@@ -158,12 +215,116 @@ namespace BoozeHound
         {
             try
             {
+                wine.Date = DateTime.Now;
+                wine.Name = wine.Name.ToUpper();
+                wine.Winery = wine.Winery?.ToUpper();
+                wine.Type = wine.Type.ToUpper();
                 Database.Insert(wine);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception in SaveWine(): {0}", ex.Message);
             }
+        }
+
+        public static void UpdateWine(Wine wine)
+        {
+            try
+            {
+                wine.Name = wine.Name.ToUpper();
+                wine.Winery = wine.Winery?.ToUpper();
+                wine.Type = wine.Type?.ToUpper();
+                Database.Update(wine);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in UpdateWine(): {0}", ex.Message);
+            }
+        }
+
+        public static void DeleteWine(Wine wine)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(wine.ImagePath))
+                    File.Delete(wine.ImagePath);
+
+                Database.Delete<Wine>(wine.Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in DeleteWine(): {0}", ex.Message);
+            }
+        }
+
+        public static List<Wine> GetWines()
+        {
+            try
+            {
+                return Database.Table<Wine>().ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetWines(): {0}", ex.Message);
+            }
+
+            return new List<Wine>();
+        }
+
+        public static List<Wine> GetWines(string query)
+        {
+            try
+            {
+                return Database.Query<Wine>(query);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetWines(query): {0}", ex.Message);
+            }
+
+            return new List<Wine>();
+        }
+
+        public static List<Wine> SearchWines(string name)
+        {
+            try
+            {
+                return Database.Query<Wine>($"SELECT * FROM Wines WHERE Name LIKE '%{name}%';");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in SearchWines(): {0}", ex.Message);
+            }
+
+            return new List<Wine>();
+        }
+
+        public static string[] GetWineries()
+        {
+            try
+            {
+                return Database.Query<Wine>("SELECT DISTINCT Winery FROM Wines WHERE Winery NOT NULL ORDER BY Winery;").Select(x => x.Winery).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetWineries(): {0}", ex.Message);
+            }
+
+            return new string[] { };
+        }
+
+        public static string[] GetWineTypes()
+        {
+            try
+            {
+                return Database.Query<Wine>("SELECT DISTINCT Type FROM Wines WHERE Type NOT NULL ORDER BY Type;").Select(x => x.Type).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetWineTypes(): {0}", ex.Message);
+            }
+
+            return new string[] { };
         }
 
         #endregion Wine Methods
@@ -174,12 +335,116 @@ namespace BoozeHound
         {
             try
             {
+                spirit.Date = DateTime.Now;
+                spirit.Name = spirit.Name.ToUpper();
+                spirit.Distiller = spirit.Distiller.ToUpper();
+                spirit.Type = spirit.Type.ToUpper();
                 Database.Insert(spirit);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception in SaveSpirit(): {0}", ex.Message);
             }
+        }
+
+        public static void UpdateSpirit(Spirit spirit)
+        {
+            try
+            {
+                spirit.Name = spirit.Name.ToUpper();
+                spirit.Distiller = spirit.Distiller.ToUpper();
+                spirit.Type = spirit.Type.ToUpper();
+                Database.Update(spirit);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in UpdateSpirit(): {0}", ex.Message);
+            }
+        }
+
+        public static void DeleteSpirit(Spirit spirit)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(spirit.ImagePath))
+                    File.Delete(spirit.ImagePath);
+
+                Database.Delete(spirit.Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in DeleteSpirit(): {0}", ex.Message);
+            }
+        }
+
+        public static List<Spirit> GetSpirits()
+        {
+            try
+            {
+                return Database.Table<Spirit>().ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetSpirits(): {0}", ex.Message);
+            }
+
+            return new List<Spirit>();
+        }
+
+        public static List<Spirit> GetSpirits(string query)
+        {
+            try
+            {
+                return Database.Query<Spirit>(query);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception is GetSpirits(query): {0}", ex.Message);
+            }
+
+            return new List<Spirit>();
+        }
+
+        public static List<Spirit> SearchSpirits(string name)
+        {
+            try
+            {
+                return Database.Query<Spirit>($"SELECT * FROM Spirits WHERE Name LIKE '%{name}%';");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in SearchSpirits(): {0}", ex.Message);
+            }
+
+            return new List<Spirit>();
+        }
+
+        public static string[] GetDistillers()
+        {
+            try
+            {
+                return Database.Query<Spirit>("SELECT DISTINCT Distiller FROM Spirits WHERE Distillery NOT NULL ORDER BY Distiller;").Select(x => x.Distiller).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetDistillers(): {0}", ex.Message);
+            }
+
+            return new string[] { };
+        }
+
+        public static string[] GetSpiritTypes()
+        {
+            try
+            {
+                return Database.Query<Spirit>("SELECT DISTINCT Type FROM Spirits WHERE Type NOT NULL ORDER BY Type;").Select(x => x.Type).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in GetSpiritTypes(): {0}", ex.Message);
+            }
+
+            return new string[] { };
         }
 
         #endregion Spirit Methods

@@ -48,7 +48,7 @@ namespace BoozeHound
             BeerList.ItemsSource = DataAccess.GetBeers(e);
         }
 
-        async private void BeerList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void BeerList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             string action = await DisplayActionSheet("", "Cancel", "Delete", "View");
 
@@ -56,8 +56,9 @@ namespace BoozeHound
 
             if (action == "Delete")
             {
-                DataAccess.DeleteBeer(beer.Id, beer.ImagePath);
+                DataAccess.DeleteBeer(beer);
                 BeerList.ItemsSource = DataAccess.GetBeers();
+                await DisplayAlert("", $"{beer.Name} has been deleted.", "Ok");
             }
             else if (action == "View")
             {
