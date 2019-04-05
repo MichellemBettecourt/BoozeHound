@@ -60,6 +60,13 @@ namespace BoozeHound
             if (action == "Beer")
             {
                 pu_Quick_Add_Beer.IsVisible = true;
+            } else if (action == "Wine")
+            {
+                pu_Quick_Add_Wine.IsVisible = true;
+            }
+            else if (action == "Spirit")
+            {
+                pu_Quick_Add_Spirit.IsVisible = true;
             }
         }
 
@@ -67,6 +74,8 @@ namespace BoozeHound
         {
             pu_Quick_Add_List.IsVisible = true;
         }
+
+        /********************************************************************/
 
         private void Quick_Add_Beer(object sender, EventArgs e)
         {
@@ -77,6 +86,31 @@ namespace BoozeHound
         {
             pu_Quick_Add_Beer.IsVisible = false;
         }
+
+        /********************************************************************/
+
+        private void Quick_Add_Wine(object sender, EventArgs e)
+        {
+            pu_Quick_Add_Wine.IsVisible = true;
+        }
+
+        private void Quick_Add_Wine_PU_Cancel(object sender, EventArgs e)
+        {
+            pu_Quick_Add_Wine.IsVisible = false;
+        }
+
+        /********************************************************************/
+
+        private void Quick_Add_Spirit(object sender, EventArgs e)
+        {
+            pu_Quick_Add_Spirit.IsVisible = true;
+        }
+
+        private void Quick_Add_Spirit_PU_Cancel(object sender, EventArgs e)
+        {
+            pu_Quick_Add_Spirit.IsVisible = false;
+        }
+
 
 
         /********************************************************************/
@@ -98,17 +132,13 @@ namespace BoozeHound
             }
         }
 
-        private void Your_Booze_List_PU_Ok(object sender, string name)
-        {
-            pu_Your_Booze_List.IsVisible = true;
-        }
+        /********************************************************************/
+
+
 
         private void Your_Booze_List_PU_Cancel(object sender, EventArgs e)
         {
             pu_Your_Booze_List.IsVisible = true;
         }
-
-        /********************************************************************/
-
     }
 }

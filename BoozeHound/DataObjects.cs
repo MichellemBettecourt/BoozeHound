@@ -56,7 +56,7 @@ namespace BoozeHound
         public int Age { get; set; }
         public string Notes { get; set; }
         [NotNull]
-        public float Rating { get; set; }
+        public double Rating { get; set; }
         [NotNull]
         public DateTime Date { get; set; }
         public string ImagePath { get; set; }
