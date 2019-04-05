@@ -15,7 +15,6 @@ namespace BoozeHound
 		public BeersPage ()
 		{
 			InitializeComponent ();
-            //DataAccess.AddTestBeers();
             BeerList.ItemsSource = DataAccess.GetBeers();
         }
 

@@ -4,76 +4,81 @@
              x:Class="BoozeHound.FullAdd_Beer"
              xmlns:local="clr-namespace:BoozeHound" >
     <ContentPage.Content>
-         <ScrollView>
-         <StackLayout>
-                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="Center">
-                    <Frame BorderColor="Black" Padding="0" Margin="0, 20, 0, 0" HeightRequest="128" WidthRequest="128">
-                        <Image x:Name="BeerImage" Aspect="AspectFill" />
-                    </Frame>
-                    <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" />
-                    <Label x:Name="DateLabel" FontSize="12" IsVisible="False" HorizontalOptions="Center" />
-                </StackLayout>
+        <AbsoluteLayout Style="{StaticResource absPageLayout}">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                        <Frame BorderColor="Black" Padding="0" Margin="0, 20, 0, 0" HeightRequest="128" WidthRequest="128">
+                            <Image x:Name="BeerImage" Aspect="AspectFill" />
+                        </Frame>
+                        <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" />
+                        <Label x:Name="DateLabel" FontSize="12" IsVisible="False" HorizontalOptions="Center" />
+                    </StackLayout>
 
-                <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="beerForm">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="8*" />
-                    </Grid.ColumnDefinitions>
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="beerForm">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="8*" />
+                        </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                    <Label Text="Name:" Grid.Row="0" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                    <Entry Margin="10, 0" x:Name="Beer_Name" Grid.Row="0" Grid.Column="1"
+                        <Label Text="Name:" Grid.Row="0" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
+                        <Entry Margin="10, 0" x:Name="Beer_Name" Grid.Row="0" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                    <Label Text="Brewery:" Grid.Row="1" Grid.Column="0" Style="{StaticResource FullAddLabel}"/>
-                    <Entry Margin="10, 0" x:Name="Beer_Brewery" Grid.Row="1" Grid.Column="1"
+                        <Label Text="Brewery:" Grid.Row="1" Grid.Column="0" Style="{StaticResource FullAddLabel}"/>
+                        <Entry Margin="10, 0" x:Name="Beer_Brewery" Grid.Row="1" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                    <Label Text="Rating:" Grid.Row="2" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                    <local:StarRating x:Name="beerRating" HorizontalOptions="Start" Grid.Row="2" Grid.Column="1"
+                        <Label Text="Rating:" Grid.Row="2" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
+                        <local:StarRating x:Name="beerRating" HorizontalOptions="Start" Grid.Row="2" Grid.Column="1"
                                       VerticalOptions="Center" Margin="10, 0" />
 
-                    <Label Text="Style:" Grid.Row="3" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                    <Entry Margin="10, 0" x:Name="Beer_Style" Grid.Row="3" Grid.Column="1"
+                        <Label Text="Style:" Grid.Row="3" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
+                        <Entry Margin="10, 0" x:Name="Beer_Style" Grid.Row="3" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                    <Label Text="ABV:" Grid.Row="4" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                    <Entry Margin="10, 0" x:Name="Beer_ABV" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"
+                        <Label Text="ABV:" Grid.Row="4" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
+                        <Entry Margin="10, 0" x:Name="Beer_ABV" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                    <Label Text="Notes:" Grid.Row="5" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                    <Editor Margin="10, 0" x:Name="Beer_Notes" Grid.Row="5" Grid.Column="1" SizeChanged="Beer_Notes_SizeChanged"
+                        <Label Text="Notes:" Grid.Row="5" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
+                        <Editor Margin="10, 0" x:Name="Beer_Notes" Grid.Row="5" Grid.Column="1" SizeChanged="Beer_Notes_SizeChanged"
                             VerticalOptions="Center" FontSize="20" AutoSize="TextChanges" MaxLength="250" />
-                </Grid>
+                    </Grid>
 
-                <Grid VerticalOptions="EndAndExpand" HorizontalOptions="Center" Padding="40, 0, 40, 40">
+                    <Grid VerticalOptions="EndAndExpand" HorizontalOptions="Center" Padding="40, 0, 40, 40">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*" />
-                        <ColumnDefinition Width="5*" />
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
 
-                    <!--<Grid.RowDefinitions>
+                        <!--<Grid.RowDefinitions>
                         <RowDefinition Height="35" />
                     </Grid.RowDefinitions>-->
 
-                    <Button Grid.Column="0" x:Name="btnCancelQABeer" Text="Cancel" HorizontalOptions="Start" 
+                        <Button Grid.Column="0" x:Name="btnCancelQABeer" Text="Cancel" HorizontalOptions="Start" 
                             Clicked="BtnCancelQABeer_Clicked" Style="{StaticResource btnWhite}" />
-                    <Button Grid.Column="1" x:Name="btnSaveQABeer" Text="Ok" HorizontalOptions="End"
+                        <Button Grid.Column="1" x:Name="btnSaveQABeer" Text="Ok" HorizontalOptions="End"
                             Clicked="BtnSaveQABeer_Clicked" Style="{StaticResource btnWhite}" />
-                </Grid>
+                    </Grid>
 
-            </StackLayout>
-            
-        </ScrollView>
-        
+                </StackLayout>
+
+            </ScrollView>
+
+            <local:ImagePopup x:Name="imagePopup" IsVisible="False" />
+
+        </AbsoluteLayout>
+
     </ContentPage.Content>
 </ContentPage>

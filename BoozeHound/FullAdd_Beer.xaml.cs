@@ -13,6 +13,7 @@ namespace BoozeHound
     {
         private bool isNew;
         private Beer beer;
+        private TapGestureRecognizer tap = new TapGestureRecognizer();
 
         public FullAdd_Beer()
         {
@@ -20,6 +21,7 @@ namespace BoozeHound
             isNew = true;
             beer = new Beer();
             BeerImage.Source = ImageSource.FromResource("BoozeHound.beer_bottle.png");
+            tap.Tapped += Image_Tapped;
         }
 
         public FullAdd_Beer(Beer b)
@@ -38,14 +40,29 @@ namespace BoozeHound
             DateLabel.IsVisible = true;
             DateLabel.Text = $"{beer.Name} added on {beer.Date.ToShortDateString()}";
 
+            tap.Tapped += Image_Tapped;
+
             if (!string.IsNullOrEmpty(beer.ImagePath))
             {
                 BeerImage.Source = ImageSource.FromFile(beer.ImagePath);
+                BeerImage.GestureRecognizers.Add(tap);
+                imagePopup.SetImage(beer.ImagePath);
             }
             else
             {
                 BeerImage.Source = ImageSource.FromResource("BoozeHound.beer_bottle.png");
             }
+        }
+
+        ~FullAdd_Beer()
+        {
+            BeerImage.GestureRecognizers.Clear();
+            tap.Tapped -= Image_Tapped;
+        }
+
+        private void Image_Tapped(object sender, EventArgs e)
+        {
+            imagePopup.IsVisible = true;
         }
 
         private void BtnCancelQABeer_Clicked(object sender, EventArgs e)
@@ -132,6 +149,10 @@ namespace BoozeHound
 
                     BeerImage.Source = ImageSource.FromFile(photo.Path);
                     beer.ImagePath = photo.Path;
+                    imagePopup.SetImage(photo.Path);
+
+                    if (BeerImage.GestureRecognizers.Count == 0)
+                        BeerImage.GestureRecognizers.Add(tap);
                 }
             }
         }
