@@ -5,9 +5,10 @@
              Style="{StaticResource popContent}">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Padding="0" CornerRadius="10">
-            <StackLayout BackgroundColor="White" WidthRequest="300" HeightRequest="400" Orientation="Vertical">
+            <StackLayout BackgroundColor="White" WidthRequest="300" Orientation="Vertical">
                 <Label Text="Filter Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
-                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold"
+                       HeightRequest="35" VerticalTextAlignment="Center" />
                 <Grid VerticalOptions="Center" HorizontalOptions="Center">
 
                     <Grid.ColumnDefinitions>
@@ -16,6 +17,16 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="3.3*" />
                     </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
                     <Switch x:Name="switchBrewery" Grid.Row="0" Grid.Column="0" Toggled="SwitchBrewery_Toggled"
                             VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
@@ -116,7 +127,7 @@
                     </Picker>
                 </Grid>
 
-                <Grid VerticalOptions="End">
+                <Grid VerticalOptions="End" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*" />
@@ -124,7 +135,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35" />
+                        <RowDefinition Height="38" />
                     </Grid.RowDefinitions>
 
                     <Button Grid.Column="0" x:Name="btnCancel" Text="Cancel" HorizontalOptions="Start" 

@@ -18,10 +18,25 @@ namespace BoozeHound
         public event EventHandler OnCancel { add { onCancel += value; } remove { onCancel -= value; } }
         public event EventHandler<string> OnOk { add { onOk += value; } remove { onOk -= value; } }
 
+        public string Title { get; set; }
+        public static readonly BindableProperty TitleProperty = BindableProperty.Create(
+            propertyName: "Title",
+            returnType: typeof(string),
+            declaringType: typeof(SearchPopup),
+            defaultValue: "",
+            defaultBindingMode: BindingMode.TwoWay,
+            propertyChanged: SearchTitleChanged);
+
 		public SearchPopup ()
 		{
 			InitializeComponent ();
 		}
+
+        private static void SearchTitleChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (SearchPopup)bindable;
+            control.lblTitle.Text = newValue.ToString();
+        }
 
         private void BtnCancel_Clicked(object sender, EventArgs e)
         {

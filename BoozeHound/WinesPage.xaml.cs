@@ -15,11 +15,41 @@ namespace BoozeHound
 		public WinesPage ()
 		{
 			InitializeComponent ();
+            WineList.ItemsSource = DataAccess.GetWines();
 		}
 
         private void BtnBack_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new MainPage();
+        }
+
+        private async void WineList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string action = await DisplayActionSheet("", "Cancel", "Delete", "View");
+
+            if (action == "View")
+            {
+
+            }
+            else if (action == "Delete")
+            {
+
+            }
+        }
+
+        private void BtnFilter_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSearch_Clicked(object sender, EventArgs e)
+        {
+            WineSearch.IsVisible = true;
+        }
+
+        private void WineSearch_OnOk(object sender, string name)
+        {
+            WineList.ItemsSource = DataAccess.SearchWines(name);
         }
     }
 }

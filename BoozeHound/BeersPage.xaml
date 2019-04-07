@@ -82,7 +82,7 @@
                 
             </StackLayout>
 
-            <BH:SearchPopup x:Name="popSearch" IsVisible="False" OnCancel="popSearch_Cancel" OnOk="popSearch_Ok" />
+            <BH:SearchPopup x:Name="popSearch" IsVisible="False" OnCancel="popSearch_Cancel" OnOk="popSearch_Ok" Title="Beer Search" />
             <BH:FilterBeerPopup x:Name="popFilter" IsVisible="False" OnOk="PopFilter_OnOk" />
         </AbsoluteLayout>
         
