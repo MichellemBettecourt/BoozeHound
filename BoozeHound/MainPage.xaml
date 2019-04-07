@@ -15,9 +15,11 @@
             </StackLayout>
             
     <local:QuickAdd_List_PU x:Name="pu_Quick_Add_List" IsVisible="False" OnCancel="Quick_Add_List_PU_Cancel" OnBeer ="Quick_Add_Beer"/>
-    <local:YourBooze_List_PU x:Name="pu_Your_Booze_List" IsVisible="False" OnCancel="Your_Booze_List_PU_Cancel" />
+    <local:YourBooze_List_PU x:Name="pu_Your_Booze_List" IsVisible="False" OnCancel="Your_Booze_List_PU_Cancel"/>
     <local:FullAdd_List_PU x:Name="pu_Full_Add_List" IsVisible="False" OnCancel="Full_Add_List_PU_Cancel" />
     <local:QuickAdd_Beer_PU x:Name="pu_Quick_Add_Beer" IsVisible="False" OnCancel="Quick_Add_Beer_PU_Cancel" />
+    <local:QuickAdd_Wine_PU x:Name="pu_Quick_Add_Wine" IsVisible="False" OnCancel="Quick_Add_Wine_PU_Cancel" />
+    <local:QuickAdd_Spirit_PU x:Name="pu_Quick_Add_Spirit" IsVisible="False" OnCancel="Quick_Add_Spirit_PU_Cancel" />
 
             
         </AbsoluteLayout>
