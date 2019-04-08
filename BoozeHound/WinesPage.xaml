@@ -79,6 +79,7 @@
             </StackLayout>
 
             <local:SearchPopup x:Name="WineSearch" IsVisible="False" OnOk="WineSearch_OnOk" Title="Wine Search" />
+            <local:FilterWinePopup x:Name="WineFilter" IsVisible="False" OnOk="WineFilter_OnOk" />
 
         </AbsoluteLayout>
     </ContentPage.Content>

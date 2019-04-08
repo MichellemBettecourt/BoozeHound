@@ -5,7 +5,7 @@
              Style="{StaticResource popContent}">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Padding="0" CornerRadius="10">
-            <StackLayout BackgroundColor="White" WidthRequest="300" Orientation="Vertical">
+            <StackLayout BackgroundColor="White" WidthRequest="320" Orientation="Vertical">
                 <Label Text="Filter Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
                            BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold"
                        HeightRequest="35" VerticalTextAlignment="Center" />
@@ -15,7 +15,7 @@
                         <ColumnDefinition Width="1.6*" />
                         <ColumnDefinition Width="2.1*" />
                         <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="3.3*" />
+                        <ColumnDefinition Width="3.5*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -86,14 +86,14 @@
                                 VerticalOptions="Center" FontSize="12" />
                     <Grid Grid.Row="4" Grid.Column="3">
                         <Switch x:Name="swDateOrLater" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="False"
-                                Toggled="SwDateOrLater_Toggled"/>
+                                Toggled="SwDateOrLater_Toggled" />
                         <Label Text="Or Later" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblDateOrLater"
-                               IsEnabled="False" HorizontalOptions="Start"/>
+                               IsEnabled="False" VerticalOptions="Center" HorizontalOptions="Start" />
 
                         <Switch x:Name="swDateOrEarlier" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="False"
-                                Toggled="SwDateOrEarlier_Toggled"/>
+                                Toggled="SwDateOrEarlier_Toggled" />
                         <Label Text="Or Earlier" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblDateOrEarlier"
-                               IsEnabled="False" HorizontalOptions="Start"/>
+                               IsEnabled="False" VerticalOptions="Center" HorizontalOptions="Start" />
                     </Grid>
 
                     <Switch x:Name="swNotes" Grid.Row="5" Grid.Column="0" Toggled="SwNotes_Toggled"

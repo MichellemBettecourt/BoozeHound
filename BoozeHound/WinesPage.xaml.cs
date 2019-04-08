@@ -27,19 +27,23 @@ namespace BoozeHound
         {
             string action = await DisplayActionSheet("", "Cancel", "Delete", "View");
 
+            Wine wine = (Wine)e.Item;
+
             if (action == "View")
             {
-
+                // Todo: Open wine data in full-add page
             }
             else if (action == "Delete")
             {
-
+                DataAccess.DeleteWine(wine);
+                WineList.ItemsSource = DataAccess.GetWines();
+                await DisplayAlert("", $"{wine.Name} has been deleted.", "Ok");
             }
         }
 
         private void BtnFilter_Clicked(object sender, EventArgs e)
         {
-
+            WineFilter.IsVisible = true;
         }
 
         private void BtnSearch_Clicked(object sender, EventArgs e)
@@ -50,6 +54,11 @@ namespace BoozeHound
         private void WineSearch_OnOk(object sender, string name)
         {
             WineList.ItemsSource = DataAccess.SearchWines(name);
+        }
+
+        private void WineFilter_OnOk(object sender, string query)
+        {
+            WineList.ItemsSource = DataAccess.GetWines(query);
         }
     }
 }
