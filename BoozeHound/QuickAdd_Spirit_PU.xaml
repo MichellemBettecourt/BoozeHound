@@ -7,31 +7,30 @@
 
     <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
         <Frame Padding="0" CornerRadius="10">
-            <StackLayout Orientation="Vertical" HeightRequest="250" WidthRequest="300" BackgroundColor="White">
+            <StackLayout Orientation="Vertical" WidthRequest="300" BackgroundColor="White">
                 <Label Text="Add Spirit" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
-                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                           BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold"
+                       HeightRequest="35" VerticalTextAlignment="Center" />
                 <!-- Place new controls here -->
                 <Entry Margin="20,20,20,0" x:Name="QASpirit_Name" Placeholder="Name"></Entry>
                 <Entry Margin="20,0,20,0" x:Name="QASpirit_Distiller" Placeholder="Distiller"></Entry>
                 <local:StarRating x:Name="spiritRating" HorizontalOptions="Center" />
-                <StackLayout Orientation="Vertical" HeightRequest="120" WidthRequest="300" BackgroundColor="White">
-                    <Grid VerticalOptions="End">
+                <Grid VerticalOptions="End" Margin="10">
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="5*" />
-                        </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="35" />
-                        </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
 
-                        <Button Grid.Column="0" x:Name="btnCancelQASpirit" Text="Cancel" HorizontalOptions="Start" 
+                    <Button Grid.Column="0" x:Name="btnCancelQASpirit" Text="Cancel" HorizontalOptions="Start" 
                             Clicked="BtnCancelQASpirit_Clicked" Style="{StaticResource btnWhite}" />
-                        <Button Grid.Column="1" x:Name="btnSaveQASpirit" Text="Ok" HorizontalOptions="End"
+                    <Button Grid.Column="1" x:Name="btnSaveQASpirit" Text="Ok" HorizontalOptions="End"
                             Clicked="BtnSaveQASpirit_Clicked" Style="{StaticResource btnWhite}" />
-                    </Grid>
-                </StackLayout>
+                </Grid>
             </StackLayout>
         </Frame>
     </StackLayout>
