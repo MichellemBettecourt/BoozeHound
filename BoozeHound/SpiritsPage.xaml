@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BoozeHound.SpiritsPage">
+             x:Class="BoozeHound.SpiritsPage"
+             xmlns:local="clr-namespace:BoozeHound">
     <ContentPage.Content>
         <AbsoluteLayout Style="{StaticResource absPageLayout}">
             <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
                     <Grid BackgroundColor="Blue">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3.3*" />
@@ -14,17 +15,72 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="35" />
+                            <RowDefinition Height="45" />
                         </Grid.RowDefinitions>
 
                         <Button Grid.Column="0" x:Name="btnBack" HorizontalOptions="Start" Text="Back" Style="{StaticResource btnBlueMed}"
                                 Clicked="BtnBack_Clicked" />
                         <Button Grid.Column="1" x:Name="btnSearch" HorizontalOptions="Center" Text="Search"
-                                Style="{StaticResource btnBlueMed}" />
-                        <Button Grid.Column="2" x:Name="btnFilter" HorizontalOptions="End" Text="Filter" Style="{StaticResource btnBlueMed}"/>
+                                Style="{StaticResource btnBlueMed}" Clicked="BtnSearch_Clicked" />
+                        <Button Grid.Column="2" x:Name="btnFilter" HorizontalOptions="End" Text="Filter" Style="{StaticResource btnBlueMed}"
+                                Clicked="BtnFilter_Clicked" />
                     </Grid>
+
+                    <ListView x:Name="SpiritList" SeparatorColor="Black" SelectionMode="None" ItemTapped="SpiritList_ItemTapped" Margin="0">
+                        <ListView.Header>
+                            <Grid BackgroundColor="DarkBlue">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.9*" />
+                                    <ColumnDefinition Width="2.9*" />
+                                    <ColumnDefinition Width=".9*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1.3*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Column="0" Style="{StaticResource gridHeaderLabel}"  Text="Name" Grid.Row="0" />
+                                <Label Grid.Column="1" Style="{StaticResource gridHeaderLabel}" Text="Distiller" Grid.Row="0" />
+                                <Label Grid.Column="2" Style="{StaticResource gridHeaderLabel}" Text="Rating" Grid.Row="0" />
+                                <Label Grid.Column="3" Style="{StaticResource gridHeaderLabel}" Text="Type" Grid.Row="0" />
+                                <Label Grid.Column="4" Style="{StaticResource gridHeaderLabel}" Text="Date" Grid.Row="0" />
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2.9*" />
+                                            <ColumnDefinition Width="2.9*" />
+                                            <ColumnDefinition Width=".9*" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="1.3*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Column="0" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Name}" />
+                                        <Label Grid.Column="1" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Distiller, TargetNullValue='-'}" />
+                                        <Label Grid.Column="2" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Rating, StringFormat='{0:F1}'}" />
+                                        <Label Grid.Column="3" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Type, TargetNullValue='-'}" />
+                                        <Label Grid.Column="4" Style="{StaticResource gridRowLabel}" 
+                                               Text="{Binding Date, StringFormat='{0:M/d/yy}'}" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
             </StackLayout>
+
+            <local:SearchPopup x:Name="SpiritSearch" IsVisible="False" OnOk="SpiritSearch_OnOk" Title="Spirit Search" />
+            <local:FilterSpiritPopup x:Name="SpiritFilter" IsVisible="False" OnOk="SpiritFilter_OnOk" />
+
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,7 +5,7 @@
              Style="{StaticResource popContent}">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Padding="0" CornerRadius="10">
-            <StackLayout BackgroundColor="White" WidthRequest="320" Orientation="Vertical">
+            <StackLayout BackgroundColor="White" WidthRequest="345" Orientation="Vertical">
                 <Label Text="Filter Beer" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
                            BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold"
                        HeightRequest="35" VerticalTextAlignment="Center" />

@@ -26,7 +26,7 @@
                                 Style="{StaticResource btnBlueMed}" Clicked="BtnFilter_Clicked" />
                     </Grid>
 
-                    <ListView x:Name="WineList" SeparatorColor="Black" SelectionMode="None" ItemTapped="WineList_ItemTapped"  Margin="0">
+                    <ListView x:Name="WineList" SeparatorColor="Black" SelectionMode="None" ItemTapped="WineList_ItemTapped" Margin="0">
                         <ListView.Header>
                             <Grid BackgroundColor="DarkBlue">
                                 <Grid.ColumnDefinitions>

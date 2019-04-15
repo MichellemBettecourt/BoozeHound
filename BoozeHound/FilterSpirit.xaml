@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BoozeHound.FilterWinePopup"
+             x:Class="BoozeHound.FilterSpiritPopup"
              Style="{StaticResource popContent}">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Padding="0" CornerRadius="10">
             <StackLayout BackgroundColor="White" WidthRequest="345" Orientation="Vertical">
-                <Label Text="Filter Wine" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                <Label Text="Filter Spirits" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
                            BackgroundColor="Blue" TextColor="White" FontSize="18" FontAttributes="Bold"
                        HeightRequest="35" VerticalTextAlignment="Center" />
                 <Grid VerticalOptions="Center" HorizontalOptions="Center">
@@ -28,14 +28,14 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Switch x:Name="switchWinery" Grid.Row="0" Grid.Column="0"
+                    <Switch x:Name="switchDistiller" Grid.Row="0" Grid.Column="0"
                             VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
-                    <Label Text="Winery" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsToggled}" x:Name="lblWinery" 
+                    <Label Text="Distiller" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsToggled}" x:Name="lblDistiller" 
                            VerticalOptions="Center" HorizontalOptions="Start" FontSize="12"
-                           BindingContext="{Reference switchWinery}" />
-                    <Picker x:Name="pickWinery" Grid.Row="0" Grid.Column="2" IsEnabled="{Binding IsToggled}" Margin="0"
+                           BindingContext="{Reference switchDistiller}" />
+                    <Picker x:Name="pickDistiller" Grid.Row="0" Grid.Column="2" IsEnabled="{Binding IsToggled}" Margin="0"
                             VerticalOptions="Center" FontSize="12" SelectedIndex="0" 
-                            BindingContext="{Reference switchWinery}"/>
+                            BindingContext="{Reference switchDistiller}"/>
 
                     <Switch x:Name="switchType" Grid.Row="1" Grid.Column="0"
                             VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
@@ -53,12 +53,12 @@
                             BindingContext="{Reference switchRating}" />
                     <Grid Grid.Row="2" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
                         <Switch x:Name="swRatingOrHigher" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="{Binding IsToggled}" 
-                                VerticalOptions="Center" Toggled="SwRatingOrHigher_Toggled" BindingContext="{Reference switchRating}" />
+                                VerticalOptions="Center" Toggled="SwRatingOrHigher_Toggled"  BindingContext="{Reference switchRating}" />
                         <Label Text="Or Higher" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblRatingOrHigher"
                                VerticalOptions="Center" BindingContext="{Reference switchRating}" IsEnabled="{Binding IsToggled}" />
 
                         <Switch x:Name="swRatingOrLower" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                VerticalOptions="Center" Toggled="SwRatingOrLower_Toggled" BindingContext="{Reference switchRating}" />
+                                VerticalOptions="Center" Toggled="SwRatingOrLower_Toggled"  BindingContext="{Reference switchRating}" />
                         <Label Text="Or Lower" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblRatingOrLower" 
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start" 
                                BindingContext="{Reference switchRating}" />
@@ -72,36 +72,36 @@
                            Keyboard="Numeric" BindingContext="{Reference switchAbv}" IsEnabled="{Binding IsToggled}"/>
                     <Grid Grid.Row="3" Grid.Column="3">
                         <Switch x:Name="swAbvOrHigher" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                VerticalOptions="Center" Toggled="SwAbvOrHigher_Toggled" BindingContext="{Reference switchAbv}" />
+                                VerticalOptions="Center" Toggled="SwAbvOrHigher_Toggled"  BindingContext="{Reference switchAbv}" />
                         <Label Text="Or Higher" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblAbvOrHigher" 
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start"
                                BindingContext="{Reference switchAbv}"/>
 
                         <Switch x:Name="swAbvOrLower" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                VerticalOptions="Center" Toggled="SwAbvOrLower_Toggled" BindingContext="{Reference switchAbv}" />
+                                VerticalOptions="Center" Toggled="SwAbvOrLower_Toggled"  BindingContext="{Reference switchAbv}" />
                         <Label Text="Or Lower" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblAbvOrLower"
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start"
                                BindingContext="{Reference switchAbv}"/>
                     </Grid>
 
-                    <Switch x:Name="VintageSwitch" Grid.Row="4" Grid.Column="0"
+                    <Switch x:Name="AgeSwitch" Grid.Row="4" Grid.Column="0"
                             VerticalOptions="Center" HorizontalOptions="Center" Scale=".8" />
-                    <Label Text="Vintage" Grid.Row="4" Grid.Column="1" x:Name="VintageLabel" IsEnabled="{Binding IsToggled}"
-                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12" BindingContext="{Reference VintageSwitch}" />
-                    <Entry x:Name="VintageEntry" Grid.Row="4" Grid.Column="2" FontSize="12" VerticalOptions="Center"
-                           Keyboard="Numeric" BindingContext="{Reference VintageSwitch}" IsEnabled="{Binding IsToggled}" />
+                    <Label Text="Age" Grid.Row="4" Grid.Column="1" x:Name="AgeLabel" IsEnabled="{Binding IsToggled}"
+                           VerticalOptions="Center" HorizontalOptions="Start" FontSize="12" BindingContext="{Reference AgeSwitch}" />
+                    <Entry x:Name="AgeEntry" Grid.Row="4" Grid.Column="2" FontSize="12" VerticalOptions="Center"
+                           Keyboard="Numeric" BindingContext="{Reference AgeSwitch}" IsEnabled="{Binding IsToggled}" />
                     <Grid Grid.Row="4" Grid.Column="3">
-                        <Switch x:Name="VintageOrLater" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                VerticalOptions="Center" Toggled="VintageOrLater_Toggled" BindingContext="{Reference VintageSwitch}" />
-                        <Label Text="Or Later" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblVintageOrLater"
+                        <Switch x:Name="AgeOrOlder" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="{Binding IsToggled}"
+                                VerticalOptions="Center" Toggled="AgeOrOlder_Toggled"  BindingContext="{Reference AgeSwitch}" />
+                        <Label Text="Or Older" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblAgeOrOlder"
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start" 
-                               BindingContext="{Reference VintageSwitch}" />
+                               BindingContext="{Reference AgeSwitch}" />
 
-                        <Switch x:Name="VintageOrEarlier" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                VerticalOptions="Center" Toggled="VintageOrEarlier_Toggled" BindingContext="{Reference VintageSwitch}" />
-                        <Label Text="Or Earlier" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblVintageOrEarlier"
+                        <Switch x:Name="AgeOrYounger" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="{Binding IsToggled}"
+                                VerticalOptions="Center" Toggled="AgeOrYounger_Toggled"  BindingContext="{Reference AgeSwitch}" />
+                        <Label Text="Or Younger" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblAgeOrYounger"
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start" 
-                               BindingContext="{Reference VintageSwitch}" />
+                               BindingContext="{Reference AgeSwitch}" />
                     </Grid>
 
                     <Switch x:Name="switchDate" Grid.Row="5" Grid.Column="0"
@@ -112,13 +112,13 @@
                                 VerticalOptions="Center" FontSize="12" BindingContext="{Reference switchDate}" />
                     <Grid Grid.Row="5" Grid.Column="3">
                         <Switch x:Name="swDateOrLater" Grid.Column="0" Grid.Row="0" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                Toggled="SwDateOrLater_Toggled" BindingContext="{Reference switchDate}" />
+                                Toggled="SwDateOrLater_Toggled"  BindingContext="{Reference switchDate}" />
                         <Label Text="Or Later" FontSize="10" Grid.Column="1" Grid.Row="0" x:Name="lblDateOrLater"
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start" 
                                BindingContext="{Reference switchDate}"/>
 
                         <Switch x:Name="swDateOrEarlier" Grid.Column="0" Grid.Row="1" Scale=".8" IsEnabled="{Binding IsToggled}"
-                                Toggled="SwDateOrEarlier_Toggled" BindingContext="{Reference switchDate}" />
+                                Toggled="SwDateOrEarlier_Toggled"  BindingContext="{Reference switchDate}" />
                         <Label Text="Or Earlier" FontSize="10" Grid.Column="1" Grid.Row="1" x:Name="lblDateOrEarlier"
                                IsEnabled="{Binding IsToggled}" VerticalOptions="Center" HorizontalOptions="Start" 
                                BindingContext="{Reference switchDate}"/>
@@ -170,7 +170,7 @@
                     <Button Grid.Column="0" x:Name="btnCancel" Text="Cancel" HorizontalOptions="Start" 
                             Clicked="BtnCancel_Clicked"  Style="{StaticResource btnWhite}" />
                     <Button Grid.Column="1" x:Name="btnOk" Text="Ok" HorizontalOptions="End"
-                            Clicked="BtnOk_Clicked" Style="{StaticResource btnWhite}" />
+                            Clicked="BtnOk_Clicked"  Style="{StaticResource btnWhite}" />
                 </Grid>
             </StackLayout>
         </Frame>

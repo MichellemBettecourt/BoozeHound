@@ -54,7 +54,7 @@
 
                         <Label Text="Notes:" Grid.Row="5" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
                         <Editor Margin="10, 0" x:Name="Beer_Notes" Grid.Row="5" Grid.Column="1" SizeChanged="Beer_Notes_SizeChanged"
-                            VerticalOptions="Center" FontSize="20" Keyboard="Text" />
+                            VerticalOptions="Center" FontSize="20" Keyboard="Text" AutoSize="TextChanges" />
                     </Grid>
 
                     <Grid VerticalOptions="EndAndExpand" HorizontalOptions="Center" Margin="0, 0, 0, 40">
