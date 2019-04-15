@@ -33,8 +33,8 @@ namespace BoozeHound
         public string Name { get; set; }
         public string Winery { get; set; }
         public string Type { get; set; }
-        public float ABV { get; set; }
-        public int Vintage { get; set; }
+        public double? ABV { get; set; }
+        public int? Vintage { get; set; }
         public string Notes { get; set; }
         [NotNull]
         public double Rating { get; set; }
@@ -52,8 +52,8 @@ namespace BoozeHound
         public string Name { get; set; }
         public string Distiller { get; set; }
         public string Type { get; set; }
-        public float ABV { get; set; }
-        public int Age { get; set; }
+        public double? ABV { get; set; }
+        public int? Age { get; set; }
         public string Notes { get; set; }
         [NotNull]
         public double Rating { get; set; }

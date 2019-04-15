@@ -33,11 +33,11 @@ namespace BoozeHound
             }
             else if (action == "Wine")
             {
-
+                App.Current.MainPage = new FullAdd_Wine();
             }
             else if (action == "Spirit")
             {
-
+                App.Current.MainPage = new FullAdd_Spirit();
             }
         }
 
