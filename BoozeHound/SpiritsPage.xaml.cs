@@ -31,7 +31,7 @@ namespace BoozeHound
 
             if (action == "View")
             {
-                // TODO: Display spirit data on full-add page.
+                App.Current.MainPage = new FullAdd_Spirit(spirit);
             }
             else if (action == "Delete")
             {

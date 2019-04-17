@@ -55,12 +55,14 @@
   <ItemGroup>
     <None Remove="beer_bottle.png" />
     <None Remove="camera.png" />
+    <None Remove="spirit_bottle.png" />
     <None Remove="star_left_empty.png" />
     <None Remove="star_left_empty_sm.png" />
     <None Remove="star_left_filled_sm.png" />
     <None Remove="star_right_empty.png" />
     <None Remove="star_right_empty_sm.png" />
     <None Remove="star_right_filled_sm.png" />
+    <None Remove="wine_bottle.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="star_left_empty_sm.png" />
@@ -70,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="beer_bottle.png" />
+    <EmbeddedResource Include="spirit_bottle.png" />
+    <EmbeddedResource Include="wine_bottle.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="FullAdd_List_PU.xaml.cs">

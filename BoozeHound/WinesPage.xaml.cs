@@ -31,7 +31,7 @@ namespace BoozeHound
 
             if (action == "View")
             {
-                // Todo: Open wine data in full-add page
+                App.Current.MainPage = new FullAdd_Wine(wine);
             }
             else if (action == "Delete")
             {
