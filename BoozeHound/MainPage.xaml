@@ -2,15 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:BoozeHound" 
-             x:Class="BoozeHound.MainPage">
+             x:Class="BoozeHound.MainPage"
+             BackgroundColor="DarkBlue">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MenuButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Blue" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
     <AbsoluteLayout Style="{StaticResource absPageLayout}">
             <StackLayout  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout VerticalOptions="CenterAndExpand" >
+                <StackLayout VerticalOptions="CenterAndExpand" Spacing="15" >
                     <!--<Button Text="Beers" Clicked="Button_Clicked" />-->
-                    <Button Margin="50,0,50,0" Text="Quick Add" Clicked="Quick_Add_Clicked" />
-                    <Button Margin="50,0,50,0" Text="Full Add" Clicked="Full_Add_Clicked" />
-                    <Button Margin="50,0,50,0" Text="Your Booze" Clicked="Booze_List_Clicked" />
+                    <Button Margin="50,0,50,0" Text="Quick Add" Clicked="Quick_Add_Clicked" Style="{StaticResource MenuButton}" />
+                    <Button Margin="50,0,50,0" Text="Full Add" Clicked="Full_Add_Clicked" Style="{StaticResource MenuButton}" />
+                    <Button Margin="50,0,50,0" Text="Your Booze" Clicked="Booze_List_Clicked" Style="{StaticResource MenuButton}" />
                 </StackLayout>
             </StackLayout>
             
