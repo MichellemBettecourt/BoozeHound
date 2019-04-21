@@ -53,8 +53,13 @@
     <Compile Remove="MyPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="beer_background.png" />
     <None Remove="beer_bottle.png" />
+    <None Remove="booze.png" />
     <None Remove="camera.png" />
+    <None Remove="hound.png" />
+    <None Remove="spirit_background.png" />
+    <None Remove="spirit_background2.png" />
     <None Remove="spirit_bottle.png" />
     <None Remove="star_left_empty.png" />
     <None Remove="star_left_empty_sm.png" />
@@ -62,6 +67,7 @@
     <None Remove="star_right_empty.png" />
     <None Remove="star_right_empty_sm.png" />
     <None Remove="star_right_filled_sm.png" />
+    <None Remove="wine_background.png" />
     <None Remove="wine_bottle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -71,8 +77,14 @@
     <Content Include="star_right_filled_sm.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="beer_background.png" />
     <EmbeddedResource Include="beer_bottle.png" />
+    <EmbeddedResource Include="booze.png" />
+    <EmbeddedResource Include="hound.png" />
+    <EmbeddedResource Include="spirit_background.png" />
+    <EmbeddedResource Include="spirit_background2.png" />
     <EmbeddedResource Include="spirit_bottle.png" />
+    <EmbeddedResource Include="wine_background.png" />
     <EmbeddedResource Include="wine_bottle.png" />
   </ItemGroup>
   <ItemGroup>

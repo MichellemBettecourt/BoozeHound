@@ -56,9 +56,13 @@ namespace BoozeHound
 
             if (action == "Delete")
             {
-                DataAccess.DeleteBeer(beer);
-                BeerList.ItemsSource = DataAccess.GetBeers();
-                await DisplayAlert("", $"{beer.Name} has been deleted.", "Ok");
+                bool delete = await DisplayAlert("Delete Beer", $"Are you sure you want to permanently delete {beer.Name}", "Yes", "No");
+                if (delete)
+                {
+                    DataAccess.DeleteBeer(beer);
+                    BeerList.ItemsSource = DataAccess.GetBeers();
+                    await DisplayAlert("", $"{beer.Name} has been deleted.", "Ok");
+                }
             }
             else if (action == "View")
             {

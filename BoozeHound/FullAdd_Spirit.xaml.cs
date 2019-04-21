@@ -18,6 +18,7 @@ namespace BoozeHound
         public FullAdd_Spirit()
         {
             InitializeComponent();
+            BGImage.Source = ImageSource.FromResource("BoozeHound.spirit_background2.png");
             isNew = true;
             spirit = new Spirit();
             SpiritImage.Source = ImageSource.FromResource("BoozeHound.spirit_bottle.png");
@@ -27,6 +28,7 @@ namespace BoozeHound
         public FullAdd_Spirit(Spirit b)
         {
             InitializeComponent();
+            BGImage.Source = ImageSource.FromResource("BoozeHound.spirit_background2.png");
             isNew = false;
             spirit = b;
 

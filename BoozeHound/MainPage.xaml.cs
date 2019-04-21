@@ -12,8 +12,8 @@ namespace BoozeHound
         public MainPage()
         {
             InitializeComponent();
-
-            //DataAccess.AddTestBeers();
+            BoozeImage.Source = ImageSource.FromResource("BoozeHound.booze.png");
+            HoundImage.Source = ImageSource.FromResource("BoozeHound.hound.png");
         }
 
         private void Button_Clicked(object sender, EventArgs e)

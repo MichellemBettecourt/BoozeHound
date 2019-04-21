@@ -35,9 +35,14 @@ namespace BoozeHound
             }
             else if (action == "Delete")
             {
-                DataAccess.DeleteSpirit(spirit);
-                await DisplayAlert("", $"{spirit.Name} has been deleted.", "Ok");
-                SpiritList.ItemsSource = DataAccess.GetSpirits();
+                bool delete = await DisplayAlert("Delete Spirit", $"Are you sure you want to permanently delete {spirit.Name}?", "Yes", "No");
+
+                if (delete)
+                {
+                    DataAccess.DeleteSpirit(spirit);
+                    await DisplayAlert("", $"{spirit.Name} has been deleted.", "Ok");
+                    SpiritList.ItemsSource = DataAccess.GetSpirits();
+                }
             }
         }
 

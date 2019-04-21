@@ -18,6 +18,7 @@ namespace BoozeHound
         public FullAdd_Beer()
         {
             InitializeComponent();
+            BGImage.Source = ImageSource.FromResource("BoozeHound.beer_background.png");
             isNew = true;
             beer = new Beer();
             BeerImage.Source = ImageSource.FromResource("BoozeHound.beer_bottle.png");
@@ -27,6 +28,7 @@ namespace BoozeHound
         public FullAdd_Beer(Beer b)
         {
             InitializeComponent();
+            BGImage.Source = ImageSource.FromResource("BoozeHound.beer_background.png");
             isNew = false;
             beer = b;
 

@@ -21,10 +21,13 @@
     <AbsoluteLayout Style="{StaticResource absPageLayout}">
             <StackLayout  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout VerticalOptions="CenterAndExpand" Spacing="15" >
-                    <!--<Button Text="Beers" Clicked="Button_Clicked" />-->
+                    <Image x:Name="BoozeImage" Aspect="AspectFit" WidthRequest="194" HeightRequest="95"
+                           Margin="50, 0, 0, 30" HorizontalOptions="StartAndExpand" />
                     <Button Margin="50,0,50,0" Text="Quick Add" Clicked="Quick_Add_Clicked" Style="{StaticResource MenuButton}" />
                     <Button Margin="50,0,50,0" Text="Full Add" Clicked="Full_Add_Clicked" Style="{StaticResource MenuButton}" />
                     <Button Margin="50,0,50,0" Text="Your Booze" Clicked="Booze_List_Clicked" Style="{StaticResource MenuButton}" />
+                    <Image x:Name="HoundImage" Aspect="AspectFit" WidthRequest="216" HeightRequest="90"
+                           Margin="0, 30, 50, 0" HorizontalOptions="EndAndExpand" />
                 </StackLayout>
             </StackLayout>
             

@@ -5,80 +5,91 @@
              xmlns:local="clr-namespace:BoozeHound">
     <ContentPage.Content>
         <ScrollView>
-            <AbsoluteLayout Style="{StaticResource absPageLayout}">
+            <RelativeLayout Padding="0">
+                <Image x:Name="BGImage" Aspect="AspectFill"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                <AbsoluteLayout Style="{StaticResource absPageLayout}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, Property=Height}">
 
-                <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                    <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Frame BorderColor="Black" Padding="0" Margin="0, 20, 0, 0" HeightRequest="128" WidthRequest="128"
+                    <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Frame BackgroundColor="Black" Padding="2" Margin="0, 20, 0, 0" HeightRequest="132" WidthRequest="132"
                                HorizontalOptions="Center">
-                            <Image x:Name="SpiritImage" Aspect="AspectFill" HorizontalOptions="Fill" />
-                        </Frame>
-                        <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" />
-                        <Label x:Name="DateLabel" FontSize="12" IsVisible="False" HorizontalOptions="Center" />
-                    </StackLayout>
+                                <Image x:Name="SpiritImage" Aspect="AspectFill" />
+                            </Frame>
+                            <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" HorizontalOptions="Center"
+                                    BorderColor="Black" BorderWidth="2" CornerRadius="10"/>
+                            <Label x:Name="DateLabel" FontSize="12" IsVisible="False" HorizontalOptions="Center" TextColor="Black"
+                                   BackgroundColor="#C0FFFFFF"/>
+                        </StackLayout>
 
-                    <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="spiritForm">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="8*" />
-                        </Grid.ColumnDefinitions>
+                        <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="spiritForm"
+                              BackgroundColor="#C0FFFFFF">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Text="Name:" Grid.Row="0" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <Entry Margin="10, 0" x:Name="Spirit_Name" Grid.Row="0" Grid.Column="1"
+                            <Label Text="Name:" Grid.Row="0" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black" />
+                            <Entry Margin="10, 0" x:Name="Spirit_Name" Grid.Row="0" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                        <Label Text="Distiller:" Grid.Row="1" Grid.Column="0" Style="{StaticResource FullAddLabel}"/>
-                        <Entry Margin="10, 0" x:Name="Spirit_Distiller" Grid.Row="1" Grid.Column="1"
+                            <Label Text="Distiller:" Grid.Row="1" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black"/>
+                            <Entry Margin="10, 0" x:Name="Spirit_Distiller" Grid.Row="1" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                        <Label Text="Rating:" Grid.Row="2" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <local:StarRating x:Name="spiritRating" HorizontalOptions="Start" Grid.Row="2" Grid.Column="1"
+                            <Label Text="Rating:" Grid.Row="2" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black" />
+                            <local:StarRating x:Name="spiritRating" HorizontalOptions="Start" Grid.Row="2" Grid.Column="1"
                                       VerticalOptions="Center" Margin="10, 0" />
 
-                        <Label Text="Type:" Grid.Row="3" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <Entry Margin="10, 0" x:Name="Spirit_Type" Grid.Row="3" Grid.Column="1"
-                           VerticalOptions="Center" FontSize="20"/>
-                        
-                         <Label Text="Age:" Grid.Row="4" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <Entry Margin="10, 0" x:Name="Spirit_Age" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"
+                            <Label Text="Type:" Grid.Row="3" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black" />
+                            <Entry Margin="10, 0" x:Name="Spirit_Type" Grid.Row="3" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                        <Label Text="ABV:" Grid.Row="5" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <Entry Margin="10, 0" x:Name="Spirit_ABV" Keyboard="Numeric" Grid.Row="5" Grid.Column="1"
+                            <Label Text="Age:" Grid.Row="4" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black"/>
+                            <Entry Margin="10, 0" x:Name="Spirit_Age" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"
                            VerticalOptions="Center" FontSize="20"/>
 
-                        <Label Text="Notes:" Grid.Row="6" Grid.Column="0" Style="{StaticResource FullAddLabel}" />
-                        <Editor Margin="10, 0" x:Name="Spirit_Notes" Grid.Row="6" Grid.Column="1" SizeChanged="Spirit_Notes_SizeChanged"
+                            <Label Text="ABV:" Grid.Row="5" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black"/>
+                            <Entry Margin="10, 0" x:Name="Spirit_ABV" Keyboard="Numeric" Grid.Row="5" Grid.Column="1"
+                           VerticalOptions="Center" FontSize="20"/>
+
+                            <Label Text="Notes:" Grid.Row="6" Grid.Column="0" Style="{StaticResource FullAddLabel}" TextColor="Black"/>
+                            <Editor Margin="10, 0" x:Name="Spirit_Notes" Grid.Row="6" Grid.Column="1" SizeChanged="Spirit_Notes_SizeChanged"
                             VerticalOptions="Center" FontSize="20" Keyboard="Text" AutoSize="TextChanges" />
-                    </Grid>
+                        </Grid>
 
-                    <Grid VerticalOptions="EndAndExpand" HorizontalOptions="Center" Margin="0, 0, 0, 40">
+                        <Grid VerticalOptions="EndAndExpand" HorizontalOptions="Center" Margin="0, 0, 0, 40">
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*" />
-                            <ColumnDefinition Width="5*" />
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" x:Name="btnCancelQASpirit" Text="Cancel" HorizontalOptions="Center" 
+                            <Button Grid.Column="0" x:Name="btnCancelQASpirit" Text="Cancel" HorizontalOptions="Center" 
                             Clicked="BtnCancelQASpirit_Clicked" Style="{StaticResource btnWhite}" Margin="0,0,40,0" />
-                        <Button Grid.Column="1" x:Name="btnSaveQASpirit" Text="Ok" HorizontalOptions="Center"
+                            <Button Grid.Column="1" x:Name="btnSaveQASpirit" Text="Ok" HorizontalOptions="Center"
                             Clicked="BtnSaveQASpirit_Clicked" Style="{StaticResource btnWhite}" Margin="40,0,0,0" />
-                    </Grid>
+                        </Grid>
 
-                </StackLayout>
+                    </StackLayout>
 
-                <local:ImagePopup x:Name="imagePopup" IsVisible="False" />
+                    <local:ImagePopup x:Name="imagePopup" IsVisible="False" />
 
-            </AbsoluteLayout>
+                </AbsoluteLayout>
+            </RelativeLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
