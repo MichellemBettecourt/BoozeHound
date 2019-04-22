@@ -218,7 +218,7 @@ namespace BoozeHound
                 wine.Date = DateTime.Now;
                 wine.Name = wine.Name.ToUpper();
                 wine.Winery = wine.Winery?.ToUpper();
-                wine.Type = wine.Type.ToUpper();
+                wine.Type = wine.Type?.ToUpper();
                 Database.Insert(wine);
             }
             catch (Exception ex)
@@ -337,8 +337,8 @@ namespace BoozeHound
             {
                 spirit.Date = DateTime.Now;
                 spirit.Name = spirit.Name.ToUpper();
-                spirit.Distiller = spirit.Distiller.ToUpper();
-                spirit.Type = spirit.Type.ToUpper();
+                spirit.Distiller = spirit.Distiller?.ToUpper();
+                spirit.Type = spirit.Type?.ToUpper();
                 Database.Insert(spirit);
             }
             catch (Exception ex)
@@ -369,7 +369,7 @@ namespace BoozeHound
                 if (!string.IsNullOrEmpty(spirit.ImagePath))
                     File.Delete(spirit.ImagePath);
 
-                Database.Delete(spirit.Id);
+                Database.Delete<Spirit>(spirit.Id);
             }
             catch (Exception ex)
             {
