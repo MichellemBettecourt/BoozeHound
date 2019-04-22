@@ -26,11 +26,11 @@
                                    BackgroundColor="#C0FFFFFF"/>
                         </StackLayout>
 
-                        <Grid HorizontalOptions="Center" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="beerForm"
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="10, 0" Padding="0, 10" x:Name="beerForm"
                               BackgroundColor="#C0FFFFFF">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="4*" />
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
